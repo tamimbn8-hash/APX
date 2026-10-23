@@ -2295,6 +2295,19 @@ ul, ol {
   transform: scale(1.05);
 }
 
+/* Free items: green glow on hover */
+.gallery-item[data-category*="free"] {
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.gallery-item[data-category*="free"]:hover {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: var(--shadow-md), 0 0 35px rgba(16, 185, 129, 0.15), 0 0 60px rgba(16, 185, 129, 0.06);
+}
+
+.gallery-item[data-category*="free"]:hover .gallery-image-box img {
+  transform: scale(1.03);
+}
+
 .gallery-overlay-badge {
   position: absolute;
   top: 14px;
@@ -2307,6 +2320,72 @@ ul, ol {
   font-weight: 700;
   color: var(--accent-secondary);
   border: 1px solid var(--border-subtle);
+}
+
+/* ── Free Resource Badge (positioned top-left on gallery images) ── */
+.gallery-free-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.45), 0 0 20px rgba(16, 185, 129, 0.2);
+  z-index: 3;
+  animation: freeBadgePulse 2.5s ease-in-out infinite;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes freeBadgePulse {
+  0%, 100% { box-shadow: 0 2px 12px rgba(16, 185, 129, 0.45), 0 0 20px rgba(16, 185, 129, 0.2); }
+  50% { box-shadow: 0 2px 18px rgba(16, 185, 129, 0.7), 0 0 30px rgba(16, 185, 129, 0.35); }
+}
+
+/* Free items: show full image centered with nice background */
+.gallery-item[data-category*="free"] .gallery-image-box {
+  background: linear-gradient(145deg, #0c1018 0%, #111827 40%, #0f1724 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.gallery-item[data-category*="free"] .gallery-image-box img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 30px rgba(16, 185, 129, 0.08);
+}
+
+.gallery-item[data-category*="free"] .gallery-image-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
+}
+
+/* Free tag in footer of gallery card */
+.gallery-free-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.1) 100%);
+  color: #34D399;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .gallery-item-body {

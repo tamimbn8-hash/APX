@@ -332,8 +332,9 @@ function initGallery() {
         const filter = btn.getAttribute('data-filter');
 
         galleryItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
+          const category = item.getAttribute('data-category') || '';
+          const categories = category.split(' ');
+          if (filter === 'all' || categories.includes(filter)) {
             item.style.display = 'flex';
             setTimeout(() => {
               item.style.opacity = '1';
