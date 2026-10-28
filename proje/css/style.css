@@ -2917,6 +2917,234 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   RULES PAGE — READABLE, RESPONSIVE & INTERACTIVE PRESENTATION
+   -------------------------------------------------------------------------- */
+.rules-toolbar {
+  max-width: 1040px;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-glass-card);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(16px);
+}
+
+.rules-search-input {
+  min-height: 58px;
+  padding-inline: 52px 20px;
+  border-radius: 16px;
+}
+
+.rules-results-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 24px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.rules-clear-btn {
+  padding: 7px 12px;
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-full);
+  background: var(--badge-bg);
+  color: var(--accent-secondary);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.rules-clear-btn:hover {
+  background: var(--accent-primary);
+  color: #fff;
+}
+
+.rules-clear-btn[hidden] {
+  display: none;
+}
+
+.rules-filter-pills {
+  gap: 8px;
+  padding: 2px 2px 8px;
+}
+
+.rules-pill-btn {
+  min-height: 42px;
+  padding-inline: 16px;
+}
+
+.rules-pill-btn:focus-visible,
+.rules-clear-btn:focus-visible,
+.rules-search-input:focus-visible {
+  outline: 3px solid var(--accent-secondary);
+  outline-offset: 3px;
+}
+
+.rules-category-block {
+  max-width: 1040px;
+  margin-bottom: 56px;
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.rules-category-title {
+  position: relative;
+  margin-bottom: 22px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.cat-title-inner {
+  gap: 14px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.cat-title-inner svg {
+  box-sizing: content-box;
+  width: 22px;
+  height: 22px;
+  padding: 10px;
+  border: 1px solid var(--badge-border);
+  border-radius: 14px;
+  background: var(--badge-bg);
+}
+
+.cat-count-badge {
+  color: var(--text-secondary);
+}
+
+.rules-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.rule-card {
+  min-width: 0;
+  min-height: 230px;
+  padding: clamp(20px, 2.4vw, 28px);
+  border-color: var(--border-subtle);
+  background: var(--bg-glass-card);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+}
+
+.rule-card::before {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary));
+}
+
+.rule-card:hover {
+  border-color: var(--badge-border);
+  box-shadow: var(--shadow-md), 0 0 24px var(--accent-glow-subtle);
+  background: var(--bg-card-hover);
+}
+
+.rule-number-badge {
+  min-width: 42px;
+  min-height: 34px;
+}
+
+.rule-type-tag {
+  line-height: 1.6;
+}
+
+.rule-card-title {
+  color: var(--text-primary);
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.rule-card-desc {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 2;
+}
+
+.rule-card-agreement {
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.16), var(--bg-card));
+}
+
+.rule-card-agreement .rule-card-title {
+  color: #fff;
+}
+
+.no-rules-found {
+  max-width: 1040px;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 1024px) {
+  .rules-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .rules-toolbar {
+    padding: 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .rules-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .rule-card {
+    min-height: 0;
+  }
+
+  .rules-category-title {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cat-title-inner {
+    align-items: flex-start;
+  }
+
+  .rules-category-block {
+    margin-bottom: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rules-results-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .rules-filter-pills {
+    margin-inline: -4px;
+  }
+
+  .rule-card {
+    padding: 20px 18px;
+  }
+
+  .sanctions-ladder {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sanction-step:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rule-card,
+  .rules-pill-btn,
+  .rules-clear-btn {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    NAVBAR ICON BUTTON & FLOATING BUTTONS
    -------------------------------------------------------------------------- */
 .nav-icon-btn {

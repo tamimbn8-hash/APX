@@ -493,6 +493,14 @@ function initRulesSearchAndFilter() {
   const ruleCards = document.querySelectorAll('.rule-card');
   const categoryBlocks = document.querySelectorAll('.rules-category-block');
   const noResultsBox = document.getElementById('noRulesFound');
+  const resultsCount = document.getElementById('rulesResultsCount');
+  const clearFiltersButton = document.getElementById('clearRulesFilters');
+  const totalRules = ruleCards.length;
+  const normalizeArabic = (value) => value
+    .toLocaleLowerCase('ar')
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+    .replace(/[أإآ]/g, 'ا')
+    .replace(/ى/g, 'ي');
 
   if (!ruleCards.length) return;
 
@@ -508,13 +516,10 @@ function initRulesSearchAndFilter() {
       let blockVisibleCount = 0;
 
       cardsInBlock.forEach(card => {
-        const title = (card.querySelector('.rule-card-title')?.textContent || '').toLowerCase();
-        const desc = (card.querySelector('.rule-card-desc')?.textContent || '').toLowerCase();
-        const num = (card.querySelector('.rule-number-badge')?.textContent || '').toLowerCase();
-        const fullText = `${title} ${desc} ${num}`;
-
+        const fullText = normalizeArabic(card.textContent || '');
+        const normalizedQuery = normalizeArabic(searchQuery);
         const matchesCat = activeCategory === 'all' || blockCat === activeCategory;
-        const matchesSearch = !searchQuery || fullText.includes(searchQuery);
+        const matchesSearch = !normalizedQuery || fullText.includes(normalizedQuery);
 
         if (matchesCat && matchesSearch) {
           card.style.display = 'flex';
@@ -529,18 +534,25 @@ function initRulesSearchAndFilter() {
     });
 
     if (noResultsBox) {
-      if (visibleCount === 0) {
-        noResultsBox.classList.add('visible');
-      } else {
-        noResultsBox.classList.remove('visible');
-      }
+      noResultsBox.classList.toggle('visible', visibleCount === 0);
+    }
+
+    if (resultsCount) {
+      resultsCount.textContent = `عرض ${visibleCount} من ${totalRules} قانون`;
+    }
+    if (clearFiltersButton) {
+      clearFiltersButton.hidden = activeCategory === 'all' && !searchQuery;
     }
   };
 
   filterPills.forEach(pill => {
     pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
+      filterPills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
       pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
       activeCategory = pill.getAttribute('data-cat-target') || 'all';
       applyFilters();
     });
@@ -548,10 +560,25 @@ function initRulesSearchAndFilter() {
 
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim().toLowerCase();
+      searchQuery = e.target.value.trim();
       applyFilters();
     });
   }
+
+  clearFiltersButton?.addEventListener('click', () => {
+    searchQuery = '';
+    if (searchInput) searchInput.value = '';
+    activeCategory = 'all';
+    filterPills.forEach(pill => {
+      const isAll = pill.getAttribute('data-cat-target') === 'all';
+      pill.classList.toggle('active', isAll);
+      pill.setAttribute('aria-selected', String(isAll));
+    });
+    applyFilters();
+    searchInput?.focus();
+  });
+
+  applyFilters();
 }
 
 /**
