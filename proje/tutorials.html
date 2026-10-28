@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الشروحات والخدمات — APX┃Velro</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="كل ما تحتاج معرفته عن APX┃Velro وخدماتنا ومواردنا في MTA، Discord، المواقع والبوتات البرمجية.">
+  <meta name="keywords" content="MTA Development, Discord Bots, Discord Server Design, Web Design, شروحات MTA, خدمات برمجية, APX Velro">
+  <meta name="author" content="Tamim - APX┃Velro">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="الشروحات والخدمات — APX┃Velro">
+  <meta property="og:description" content="استكشف خدمات APX┃Velro في تطوير MTA، سيرفرات وبوتات ديسكورد، وتصميم مواقع الويب.">
+  <meta property="og:image" content="https://tamimbn8-hash.github.io/APX/assets/images/tamim.png">
+  <meta property="og:locale" content="ar_AR">
+
+  <!-- Favicon / Theme Color -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <meta name="theme-color" content="#08090D">
+
+  <!-- Google Fonts: Cairo, Tajawal, Almarai, IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Rain Canvas Background -->
+  <canvas id="rainCanvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" aria-label="APX Velro الرئيسية">
+        <div class="brand-icon-box">
+          <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-name">
+          <span>APX</span>
+          <span class="brand-bar">┃</span>
+          <span>Velro</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="tutorials.html" class="nav-link active">الشروحات</a>
+        <a href="rules.html" class="nav-link">القوانين</a>
+        <a href="designs.html" class="nav-link">بعض تصاميمنا</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Settings Nav Button -->
+        <button class="nav-icon-btn" id="navSettingsBtn" aria-label="تخصيص المظهر" title="تخصيص المظهر والخطوط">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+
+        <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          <span>انضم إلى السيرفر</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="تبديل القائمة" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         PAGE HEADER & INTRO
+         ======================================================================= -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="section-badge reveal">
+          <span class="animated-emoji">📚</span>
+          <span>الدليل الشامل والخدمات</span>
+        </div>
+        <h1 class="section-title reveal">الشروحات والخدمات <span class="emoji-bounce">⚡</span></h1>
+        <p class="section-subtitle reveal">
+          "كل ما تحتاج معرفته عن APX┃Velro وخدماتنا ومواردنا الرقمية."
+        </p>
+      </div>
+    </section>
+
+    <!-- Professional Introduction -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="intro-lead-card reveal">
+          "APX┃Velro هو مجتمع رقمي يهتم بشكل أساسي بتطوير MTA وتوفير المودات والسكربتات والأدوات والملفات، بالإضافة إلى خدمات تصميم المواقع والبوتات وسيرفرات Discord."
+        </div>
+
+        <!-- ===================================================================
+             CATEGORY DETAILS (MTA, Discord, Websites, Bots)
+             =================================================================== -->
+        <div class="categories-grid">
+          <!-- Category 1: MTA -->
+          <div class="category-detail-card reveal">
+            <div class="cat-header">
+              <div class="cat-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+              <div>
+                <h2 class="cat-title">MTA</h2>
+                <span class="cat-badge">Multi Theft Auto: SA Solutions</span>
+              </div>
+            </div>
+
+            <div class="cat-items-list">
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>مودات (Gamemodes &amp; Addons)</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>سكربتات برمجية دقيقة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>أنظمة وسيرفرات RPG / RP</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>أدوات مساعدة وإدارية</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>ملفات وبيانات نظيفة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>حلول برمجية مخصصة حسب الطلب</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Discord -->
+          <div class="category-detail-card reveal">
+            <div class="cat-header">
+              <div class="cat-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+              </div>
+              <div>
+                <h2 class="cat-title">Discord</h2>
+                <span class="cat-badge">Server Architecture &amp; Setup</span>
+              </div>
+            </div>
+
+            <div class="cat-items-list">
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>تصميم سيرفر من الصفر</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>تنظيم الأقسام والرومات بهندسة أنيقة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>إعداد دقيق للصلاحيات والرتب</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>تطوير ودمج البوتات</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>أنظمة التذاكر (Tickets) السريعة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>أنظمة الحماية ضد التخريب (Anti-Raid)</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>أنظمة الإدارة والمراقبة التلقائية</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Websites -->
+          <div class="category-detail-card reveal">
+            <div class="cat-header">
+              <div class="cat-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>
+              </div>
+              <div>
+                <h2 class="cat-title">Websites</h2>
+                <span class="cat-badge">Modern Web Engineering</span>
+              </div>
+            </div>
+
+            <div class="cat-items-list">
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>تصميم مواقع رقمية عصرية</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>صفحات هبوط (Landing Pages) مخصصة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>مواقع مجتمعات الألعاب والكلانات</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>صفحات لعرض الخدمات والأسعار</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>واجهات مستخدم مخصصة ومتجاوبة</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Bots -->
+          <div class="category-detail-card reveal">
+            <div class="cat-header">
+              <div class="cat-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.38-1 1.72V7h2a5 5 0 0 1 5 5v1h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v1a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-1H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-1a5 5 0 0 1 5-5h2V5.72c-.6-.34-1-.98-1-1.72a2 2 0 0 1 2-2zM7.5 13a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm9 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+              </div>
+              <div>
+                <h2 class="cat-title">Bots</h2>
+                <span class="cat-badge">Automation &amp; Custom Bots</span>
+              </div>
+            </div>
+
+            <div class="cat-items-list">
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Discord Bots مخصصة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Ticket Systems متطورة</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Moderation &amp; Auto-Moderation</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Automation وسيرفر ويب هوك</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Custom Commands وأوامر تفاعلية</span>
+              </div>
+              <div class="cat-item-pill">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Server Management ولوحات تحكم</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         PRICING / SERVICE ESTIMATION SECTION (EDITABLE PLACEHOLDERS)
+         ======================================================================= -->
+    <section class="section section-secondary" id="pricing">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            <span>تقديرات الأسعار</span>
+          </div>
+          <h2 class="section-title">تقدير أسعار الخدمات</h2>
+          <p class="section-subtitle">
+            أسعار مرنة تعتمد على حجم ومتطلبات كل مشروع — كافة الأسعار هنا قابلة للتعديل والتحديث بسهولة.
+          </p>
+        </div>
+
+        <!-- ===================================================================
+             EDITABLE PRICING PLACEHOLDERS:
+             Edit the "500 DA" values below as needed.
+             =================================================================== -->
+        <div class="pricing-grid">
+          <!-- Pricing 1: MTA Development -->
+          <div class="pricing-card reveal">
+            <h3 class="pricing-card-title">MTA Development</h3>
+            <div class="pricing-rate-box">
+              <span class="pricing-rate">يبدأ من: 500 DA</span>
+            </div>
+            <p class="pricing-meta">
+              يشمل تطوير المودات، السكربتات المخصصة، أو الأنظمة البرمجية لسيرفرك بحسب حجم التعقيد.
+            </p>
+            <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" style="margin-top: auto;">
+              <span>اطلب خدمتك</span>
+            </a>
+          </div>
+
+          <!-- Pricing 2: Discord Server Design -->
+          <div class="pricing-card reveal">
+            <h3 class="pricing-card-title">Discord Server Design</h3>
+            <div class="pricing-rate-box">
+              <span class="pricing-rate">يبدأ من: 500 DA</span>
+            </div>
+            <p class="pricing-meta">
+              تصميم وتنسيق سيرفر ديسكورد متكامل من الصفر، يشمل الرومات، الرتب، الصلاحيات، والبنرات التنسيقية.
+            </p>
+            <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" style="margin-top: auto;">
+              <span>اطلب خدمتك</span>
+            </a>
+          </div>
+
+          <!-- Pricing 3: Discord Bot -->
+          <div class="pricing-card reveal">
+            <h3 class="pricing-card-title">Discord Bot</h3>
+            <div class="pricing-rate-box">
+              <span class="pricing-rate">يبدأ من: 500 DA</span>
+            </div>
+            <p class="pricing-meta">
+              برمجة بوت ديسكورد حصري (تذاكر، حماية، إدارة، أوامر تفاعلية، ربط قواعد بيانات).
+            </p>
+            <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" style="margin-top: auto;">
+              <span>اطلب خدمتك</span>
+            </a>
+          </div>
+
+          <!-- Pricing 4: Website -->
+          <div class="pricing-card reveal">
+            <h3 class="pricing-card-title">Website</h3>
+            <div class="pricing-rate-box">
+              
+            </div>
+            <p class="pricing-meta">
+              تصميم صفحة هبوط أو موقع ويب متجاوب وسريع لسيرفرك أو علامتك الرقمية بأحدث المعايير.
+            </p>
+            <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" style="margin-top: auto;">
+              <span>اطلب خدمتك</span>
+            </a>
+          </div>
+
+          <!-- Pricing 5: Custom Project -->
+          <div class="pricing-card reveal">
+            <h3 class="pricing-card-title">Custom Project</h3>
+            <div class="pricing-rate-box">
+              <span class="pricing-rate">حسب المشروع</span>
+            </div>
+            <p class="pricing-meta">
+              مشاريع كبيرة، أنظمة مركبة، وتطوير شامل من الصفر يتم تسعيره بدقة وفق قائمة المتطلبات.
+            </p>
+            <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-outline-accent btn-sm" style="margin-top: auto;">
+              <span>اطلب خدمتك</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pricing Note Banner -->
+        <div class="pricing-note-banner reveal">
+          <p>
+            💡 <strong>ملاحظة هامة:</strong> "الأسعار تختلف حسب حجم المشروع ومتطلباته. تواصل معنا للحصول على السعر النهائي."
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;" class="reveal">
+          <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            <span>اطلب خدمتك عبر Discord</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         HOW TO REQUEST A SERVICE (4 STEPS)
+         ======================================================================= -->
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <span>خطوات العمل</span>
+          </div>
+          <h2 class="section-title">كيف تطلب خدمتك؟</h2>
+          <p class="section-subtitle">
+            مسار عمل واضح ومباشر يضمن تسليم مشروعك بدقة وفي الوقت المتفق عليه.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card reveal">
+            <div class="step-number">01</div>
+            <h3 class="step-title">اختر الخدمة</h3>
+            <p class="step-desc">
+              حدد المجال المطلوب (MTA، ديسكورد، برمجة بوت، أو تصميم موقع ويب).
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card reveal">
+            <div class="step-number">02</div>
+            <h3 class="step-title">أرسل تفاصيل مشروعك</h3>
+            <p class="step-desc">
+              تواصل معنا عبر تذكرة الديسكورد واشرح الفكرة والمتطلبات التي ترغب بتنفيذها.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card reveal">
+            <div class="step-number">03</div>
+            <h3 class="step-title">نحدد المتطلبات والسعر</h3>
+            <p class="step-desc">
+              ندرس المشروع معك بدقة ونحدد المدة الزمنية والسعر النهائي المتفق عليه.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card reveal">
+            <div class="step-number">04</div>
+            <h3 class="step-title">نبدأ التنفيذ</h3>
+            <p class="step-desc">
+              نشرع في البرمجة والتنفيذ مع إطلاعك على التحديثات خطوة بخطوة حتى التسليم.
+            </p>
+          </div>
+        </div>
+
+        <!-- Free Resources Callout Box -->
+        <div class="free-resources-box reveal">
+          <div class="free-res-content">
+            <h3 class="free-res-title">الموارد والمساعدات المجانية</h3>
+            <p class="free-res-text">
+              "بعض الموارد متاحة مجانًا لأعضاء المجتمع، بينما تتوفر موارد وخدمات احترافية مدفوعة."
+            </p>
+          </div>
+          <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            <span>انضم للحصول على الموارد</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-box">
+          <div class="footer-brand">
+            <div class="brand-icon-box">AV</div>
+            <span>APX┃Velro</span>
+          </div>
+          <p class="footer-desc">
+            مجتمع رقمي متخصص في MTA والتطوير والخدمات الرقمية.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="tutorials.html">الشروحات والخدمات</a></li>
+            <li><a href="rules.html">القوانين الرسمية</a></li>
+            <li><a href="designs.html">بعض تصاميمنا</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">المجتمع والدعم</h4>
+          <ul class="footer-links">
+            <li><a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer">سيرفر Discord الرسمي</a></li>
+            <li><a href="rules.html">قوانين وإرشادات المجتمع</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © <span class="current-year">2026</span> APX┃Velro — All Rights Reserved.
+        </div>
+        <div>
+          <span>Founder &amp; Developer: Tamim</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Settings & Back-to-Top Buttons -->
+  <button class="floating-settings-btn" id="floatingSettingsBtn" aria-label="تخصيص المظهر" title="تخصيص المظهر والخطوط">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+  </button>
+
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="الرجوع للأعلى" title="الرجوع للأعلى">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- =========================================================================
+       SETTINGS DRAWER / PANEL (نافذة الإعدادات والتخصيص)
+       ========================================================================= -->
+  <div class="settings-drawer-overlay" id="settingsOverlay" aria-hidden="true">
+    <div class="settings-drawer" id="settingsDrawer" role="dialog" aria-modal="true" aria-label="تخصيص وإعدادات الموقع">
+      
+      <!-- Drawer Header -->
+      <div class="settings-drawer-header">
+        <div class="settings-header-title">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <div>
+            <h3>تخصيص المظهر</h3>
+            <span class="settings-sub">تحكم في الخطوط والأنماط والألوان</span>
+          </div>
+        </div>
+        <button class="settings-close-btn" id="closeSettingsBtn" aria-label="إغلاق لوحة الإعدادات">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- Drawer Body -->
+      <div class="settings-drawer-body">
+
+        <!-- 1. Theme Mode (Dark & Light) -->
+        <div class="settings-group">
+          <label class="settings-group-label">الوضع الليلي والسمة</label>
+          <div class="theme-options-grid">
+            <button class="theme-option-card active" data-theme-val="midnight">
+              <span class="theme-color-preview preview-midnight"></span>
+              <span class="theme-title">Midnight (داكن ملكي)</span>
+            </button>
+            <button class="theme-option-card" data-theme-val="oled">
+              <span class="theme-color-preview preview-oled"></span>
+              <span class="theme-title">OLED Black (سواد نقي)</span>
+            </button>
+            <button class="theme-option-card" data-theme-val="cyber">
+              <span class="theme-color-preview preview-cyber"></span>
+              <span class="theme-title">Cyber Blue (أزرق تقني)</span>
+            </button>
+            <button class="theme-option-card" data-theme-val="violet">
+              <span class="theme-color-preview preview-violet"></span>
+              <span class="theme-title">Neon Violet (بنفسجي نيون)</span>
+            </button>
+            <button class="theme-option-card" data-theme-val="light" style="grid-column: span 2;">
+              <span class="theme-color-preview preview-light"></span>
+              <span class="theme-title">☀️ الوضع النهاري (أبيض ناصع)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 1.5 Ambience FX Mode (Rain, Stars, Snow, Matrix, Off) -->
+        <div class="settings-group">
+          <label class="settings-group-label">خلفية الأجواء التفاعلية (Ambience FX)</label>
+          <div class="ambient-effects-grid">
+            <button class="ambient-fx-btn active" data-fx-val="rain">
+              <span class="fx-emoji">🌧️</span>
+              <span class="fx-title">مطر سينمائي</span>
+            </button>
+            <button class="ambient-fx-btn" data-fx-val="stars">
+              <span class="fx-emoji">✨</span>
+              <span class="fx-title">شهب ونجوم</span>
+            </button>
+            <button class="ambient-fx-btn" data-fx-val="snow">
+              <span class="fx-emoji">❄️</span>
+              <span class="fx-title">ثلج وجزيئات</span>
+            </button>
+            <button class="ambient-fx-btn" data-fx-val="matrix">
+              <span class="fx-emoji">⚡</span>
+              <span class="fx-title">مصفوفة ديجيتال</span>
+            </button>
+            <button class="ambient-fx-btn" data-fx-val="off" style="grid-column: span 2;">
+              <span class="fx-emoji">🚫</span>
+              <span class="fx-title">إيقاف التأثير المتحرك</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Accent Color -->
+        <div class="settings-group">
+          <label class="settings-group-label">لون التمييز (Accent Color)</label>
+          <div class="accent-options-row">
+            <button class="accent-dot-btn active" data-accent-val="blurple" style="--dot-color: #5865F2;" title="Blurple (ديسكورد)"></button>
+            <button class="accent-dot-btn" data-accent-val="purple" style="--dot-color: #8B5CF6;" title="Violet (أرجواني)"></button>
+            <button class="accent-dot-btn" data-accent-val="cyan" style="--dot-color: #00D2FF;" title="Cyan (فيروزي)"></button>
+            <button class="accent-dot-btn" data-accent-val="emerald" style="--dot-color: #10B981;" title="Emerald (زمردي)"></button>
+            <button class="accent-dot-btn" data-accent-val="amber" style="--dot-color: #F59E0B;" title="Amber (عنبري)"></button>
+            <button class="accent-dot-btn" data-accent-val="crimson" style="--dot-color: #FF3366;" title="Crimson (قرمزي)"></button>
+          </div>
+        </div>
+
+        <!-- 3. Fonts -->
+        <div class="settings-group">
+          <label class="settings-group-label">نوع الخط العربي</label>
+          <div class="font-options-grid">
+            <button class="font-option-btn active" data-font-val="cairo" style="font-family: 'Cairo', sans-serif;">
+              <span>Cairo (افتراضي)</span>
+              <span class="font-sample">أبجد هوز حطي كلمن</span>
+            </button>
+            <button class="font-option-btn" data-font-val="tajawal" style="font-family: 'Tajawal', sans-serif;">
+              <span>Tajawal (تجوال)</span>
+              <span class="font-sample">أبجد هوز حطي كلمن</span>
+            </button>
+            <button class="font-option-btn" data-font-val="almarai" style="font-family: 'Almarai', sans-serif;">
+              <span>Almarai (المراعي)</span>
+              <span class="font-sample">أبجد هوز حطي كلمن</span>
+            </button>
+            <button class="font-option-btn" data-font-val="ibm" style="font-family: 'IBM Plex Sans Arabic', sans-serif;">
+              <span>IBM Plex (آي بي إم)</span>
+              <span class="font-sample">أبجد هوز حطي كلمن</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Font Size -->
+        <div class="settings-group">
+          <label class="settings-group-label">حجم الخط الأساسي</label>
+          <div class="size-options-row">
+            <button class="size-btn" data-size-val="sm">صغير</button>
+            <button class="size-btn active" data-size-val="md">عادي</button>
+            <button class="size-btn" data-size-val="lg">كبير</button>
+          </div>
+        </div>
+
+        <!-- 5. Toggles (Animations & Glow) -->
+        <div class="settings-group">
+          <label class="settings-group-label">المؤثرات البصرية</label>
+          <div class="toggle-control-item">
+            <div class="toggle-info">
+              <span>التأثيرات الحركية (Animations)</span>
+              <small>حركات الظهور والانتقال السلس</small>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="motionToggle" checked>
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+          <div class="toggle-control-item" style="margin-top: 10px;">
+            <div class="toggle-info">
+              <span>توهج النيون (Glow Aura)</span>
+              <small>توهج الأزرار وإضاءة الإطارات</small>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="glowToggle" checked>
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+          <div class="toggle-control-item" style="margin-top: 10px;">
+            <div class="toggle-info">
+              <span>🔊 المؤثرات الصوتية (Sound FX)</span>
+              <small>أصوات تفاعلية خفيفة عند النقر والتنقل</small>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="soundToggle" checked>
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+          <div class="toggle-control-item" style="margin-top: 10px;">
+            <div class="toggle-info">
+              <span>🌧 مطر الخلفية (Rain Effect)</span>
+              <small>تأثير مطر متحرك في خلفية الموقع</small>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="rainToggle" checked>
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="settings-footer-actions">
+          <button class="btn btn-secondary btn-sm" id="resetSettingsBtn" style="width: 100%;">
+            <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            <span>استعادة الإعدادات الافتراضية</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

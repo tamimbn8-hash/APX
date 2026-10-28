@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بعض تصاميمنا — APX┃Velro</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="معرض أعمال وتصاميم APX┃Velro: سيرفرات ديسكورد، سكربتات ومودات MTA، مواقع ويب، وهوية بصرية رقمية.">
+  <meta name="keywords" content="معرض أعمال, تصاميم ديسكورد, مودات MTA, تصاميم مواقع, APX Velro Portfolio, Tamim">
+  <meta name="author" content="Tamim - APX┃Velro">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="بعض تصاميمنا — APX┃Velro">
+  <meta property="og:description" content="مجموعة من الأعمال والتصاميم البرمجية التي قمنا بتنفيذها.">
+  <meta property="og:image" content="https://tamimbn8-hash.github.io/APX/assets/images/design-01.jpg">
+  <meta property="og:locale" content="ar_AR">
+
+  <!-- Favicon / Theme Color -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <meta name="theme-color" content="#08090D">
+
+  <!-- Google Fonts: Cairo, Tajawal, Almarai, IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Rain Canvas Background -->
+  <canvas id="rainCanvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" aria-label="APX Velro الرئيسية">
+        <div class="brand-icon-box">
+          <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-name">
+          <span>APX</span>
+          <span class="brand-bar">┃</span>
+          <span>Velro</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="tutorials.html" class="nav-link">الشروحات</a>
+        <a href="rules.html" class="nav-link">القوانين</a>
+        <a href="designs.html" class="nav-link active">بعض تصاميمنا</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Settings Nav Button -->
+        <button class="nav-icon-btn" id="navSettingsBtn" aria-label="تخصيص المظهر" title="تخصيص المظهر والخطوط">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+
+        <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          <span>انضم إلى السيرفر</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="تبديل القائمة" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         PAGE HEADER
+         ======================================================================= -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="section-badge reveal">
+          <span class="animated-emoji">🎨</span>
+          <span>معرض الأعمال الرقمية</span>
+        </div>
+        <h1 class="section-title reveal">بعض تصاميمنا <span class="emoji-bounce">✨</span></h1>
+        <p class="section-subtitle reveal">
+          "مجموعة من الأعمال والتصاميم البرمجية التي قمنا بتنفيذها وإطلاقها بنجاح."
+        </p>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         GALLERY SECTION
+         ======================================================================= -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <!-- Category Filters -->
+        <div class="gallery-filters reveal" role="tablist" aria-label="تصفية معرض الأعمال">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">الكل</button>
+          <button class="filter-btn" data-filter="discord" role="tab" aria-selected="false">Discord</button>
+          <button class="filter-btn" data-filter="mta" role="tab" aria-selected="false">MTA</button>
+          <button class="filter-btn" data-filter="websites" role="tab" aria-selected="false">Websites</button>
+          <button class="filter-btn" data-filter="bots" role="tab" aria-selected="false">Bots</button>
+          <button class="filter-btn" data-filter="graphics" role="tab" aria-selected="false">Graphics</button>
+          <button class="filter-btn" data-filter="free" role="tab" aria-selected="false">🎁 مجاني</button>
+        </div>
+
+        <!-- ===================================================================
+             GALLERY GRID (PLACEHOLDER IMAGES: design-01.jpg to design-06.jpg)
+             
+             HOW TO ADD A NEW DESIGN:
+             Copy one of the .gallery-item blocks below, paste it, and edit:
+             - data-category: ("discord", "mta", "websites", "bots", "graphics")
+             - data-img: "assets/images/your-image.jpg"
+             - data-title: "Title of your work"
+             - data-category-label: "Display Category Label"
+             - data-desc: "Short description of the work"
+             - <img src="..."> and the visible text inside the card.
+             =================================================================== -->
+        <div class="gallery-grid" id="galleryGrid">
+
+          <!-- Design Item 01: Discord -->
+          <article class="gallery-item reveal" 
+                   data-category="discord" 
+                   data-img="assets/images/design-01.jpg"
+                   data-title="تصميم وتنسيق سيرفر مجتمع ديسكورد"
+                   data-category-label="Discord"
+                   data-desc="هندسة كاملة للرومات، الرتب، صلاحيات المشرفين والأعضاء، وقنوات التذاكر والإعلانات.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">Discord</span>
+              <img src="assets/images/design-01.jpg" alt="تصميم وتنسيق سيرفر مجتمع ديسكورد" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">تصميم وتنسيق سيرفر ديسكورد</h3>
+              <p class="gallery-item-desc">
+                تنظيم شامل للأقسام والرتب مع بنرات ورومات منظمة باحترافية كاملة.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-view-hint">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>عرض التفاصيل</span>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#01</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Design Item 02: MTA -->
+          <article class="gallery-item reveal" 
+                   data-category="mta" 
+                   data-img="assets/images/design-02.jpg"
+                   data-title="نظام HUD وواجهة مركبات لسيرفرات MTA"
+                   data-category-label="MTA"
+                   data-desc="واجهة مستخدم عصرية وسريعة جداً مبنية بتقنيات DX Drawing المتوافقة مع كافة أبعاد الشاشات.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">MTA:SA</span>
+              <img src="assets/images/design-02.jpg" alt="نظام HUD وواجهة مركبات لسيرفرات MTA" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">نظام HUD ومركبات مخصص</h3>
+              <p class="gallery-item-desc">
+                واجهة متناسقة وخفيفة تمنح سيرفر MTA مظهراً فريداً وأداءً ثابتاً بدون أي هبوط في الفريمات.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-view-hint">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>عرض التفاصيل</span>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#02</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Design Item 03: Websites -->
+          <article class="gallery-item reveal" 
+                   data-category="websites" 
+                   data-img="assets/images/design-03.jpg"
+                   data-title="بوابة ويب متكاملة لمجتمع ألعاب"
+                   data-category-label="Websites"
+                   data-desc="صفحة هبوط وموقع تعريفي متكامل يتميز بواجهة داكنة وسرعة تحميل فائقة ودعم RTL كامل.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">Websites</span>
+              <img src="assets/images/design-03.jpg" alt="بوابة ويب متكاملة لمجتمع ألعاب" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">بوابة استوديو ومجتمع ألعاب</h3>
+              <p class="gallery-item-desc">
+                تصميم حديث لصفحة هبوط مع استعراض الخدمات وقنوات الاتصال وأسعار الخدمات.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-view-hint">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>عرض التفاصيل</span>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#03</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Design Item 04: Bots -->
+          <article class="gallery-item reveal" 
+                   data-category="bots" 
+                   data-img="assets/images/design-04.jpg"
+                   data-title="بوت ديسكورد للتذاكر والإدارة التلقائية"
+                   data-category-label="Bots"
+                   data-desc="بوت مخصص بأزرار تفاعلية (Buttons &amp; Select Menus) لإدارة طلبات الدعم وحماية السيرفر.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">Bots</span>
+              <img src="assets/images/design-04.jpg" alt="بوت ديسكورد للتذاكر والإدارة التلقائية" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">بوت التذاكر والإشراف المتقدم</h3>
+              <p class="gallery-item-desc">
+                نظام تذاكر احترافي سريع مع سجلات كاملة (Transcripts) وأوامر إدارية متطورة.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-view-hint">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>عرض التفاصيل</span>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#04</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Design Item 05: MTA -->
+          <article class="gallery-item reveal" 
+                   data-category="mta" 
+                   data-img="assets/images/design-05.jpg"
+                   data-title="سكربت الحقيبة والتجارة لسيرفرات Roleplay"
+                   data-category-label="MTA"
+                   data-desc="نظام حقيبة سحب وإفلات (Drag &amp; Drop) متصل بقاعدة بيانات MySQL بأداء عالي وحماية تامة ضد التكرار.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">MTA:SA</span>
+              <img src="assets/images/design-05.jpg" alt="سكربت الحقيبة والتجارة لسيرفرات Roleplay" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">سكربت الحقيبة والتجارة (Inventory)</h3>
+              <p class="gallery-item-desc">
+                نظام حقيبة وتداول تفاعلي متقدم مخصص لسيرفرات الحياة الواقعية في MTA.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-view-hint">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>عرض التفاصيل</span>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#05</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Design Item 06: Graphics -->
+          <article class="gallery-item reveal" 
+                   data-category="graphics" 
+                   data-img="assets/images/design-06.jpg"
+                   data-title="حزمة الهوية البصرية والبنرات الرقمية"
+                   data-category-label="Graphics"
+                   data-desc="مجموعة متناسقة من البنرات والأيقونات والفواصل المخصصة لسيرفرات ومجتمعات الألعاب.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">Graphics</span>
+              <img src="assets/images/design-06.jpg" alt="حزمة الهوية البصرية والبنرات الرقمية" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">هوية وبنرات سيرفرات متكاملة</h3>
+              <p class="gallery-item-desc">
+                تصاميم بصرية متناسقة لشعارات السيرفرات وفواصل الرومات وتصاميم الإعلانات.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-view-hint">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>عرض التفاصيل</span>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#06</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ===============================================================
+               🎁 FREE RESOURCES SECTION
+               =============================================================== -->
+
+          <!-- Free Item 01: MTA Investment Panel & Farm System -->
+          <article class="gallery-item reveal" 
+                   data-category="mta free" 
+                   data-img="assets/images/free-investment-panel.png"
+                   data-title="نظام الاستثمار والزراعة — سكربت مجاني"
+                   data-category-label="MTA:SA"
+                   data-desc="سكربت متكامل يحتوي على لوحة استثمار احترافية مع نظام زراعة تفاعلي، واجهة مستخدم عصرية باللغة العربية.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">MTA:SA</span>
+              <span class="gallery-free-badge">🎁 مجاني — FREE</span>
+              <img src="assets/images/free-investment-panel.png" alt="نظام الاستثمار والزراعة — سكربت مجاني MTA" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">🌾 نظام الاستثمار والزراعة</h3>
+              <p class="gallery-item-desc">
+                لوحة استثمار متقدمة + نظام زراعة تفاعلي مع واجهة عربية أنيقة — مجاني بالكامل لسيرفرات MTA.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-free-tag">🎁 مجاني بالكامل</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#F01</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Free Item 02: Discord Rich Presence (Ashford RP) -->
+          <article class="gallery-item reveal" 
+                   data-category="discord free" 
+                   data-img="assets/images/free-discord-rpc.png"
+                   data-title="Discord Rich Presence — Ashford RP"
+                   data-category-label="Discord"
+                   data-desc="نظام Discord Rich Presence جاهز يعرض معلومات السيرفر واللاعبين ووقت اللعب مباشرة في بروفايل ديسكورد.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">Discord</span>
+              <span class="gallery-free-badge">🎁 مجاني — FREE</span>
+              <img src="assets/images/free-discord-rpc.png" alt="Discord Rich Presence — Ashford RP" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">🎮 Discord Rich Presence</h3>
+              <p class="gallery-item-desc">
+                إظهار حالة اللعب ومعلومات السيرفر في بروفايل ديسكورد — مجاني وجاهز للاستخدام مباشرة.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-free-tag">🎁 مجاني بالكامل</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#F02</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Free Item 03: MTA Scoreboard -->
+          <article class="gallery-item reveal" 
+                   data-category="mta free" 
+                   data-img="assets/images/free-scoreboard.png"
+                   data-title="سكوربورد احترافي — لوحة اللاعبين"
+                   data-category-label="MTA:SA"
+                   data-desc="سكوربورد عصري يعرض اللاعبين، الرتب، الساعات، وعدد الستاف أونلاين بتصميم نظيف وأنيق.">
+            <div class="gallery-image-box">
+              <span class="gallery-overlay-badge">MTA:SA</span>
+              <span class="gallery-free-badge">🎁 مجاني — FREE</span>
+              <img src="assets/images/free-scoreboard.png" alt="سكوربورد احترافي — لوحة اللاعبين MTA" loading="lazy" width="600" height="375">
+            </div>
+            <div class="gallery-item-body">
+              <h3 class="gallery-item-title">📊 سكوربورد احترافي</h3>
+              <p class="gallery-item-desc">
+                لوحة لاعبين أنيقة تعرض الأسماء والرتب وساعات اللعب مع إحصائيات مباشرة — مجاني بالكامل.
+              </p>
+              <div class="gallery-item-footer">
+                <span class="gallery-free-tag">🎁 مجاني بالكامل</span>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">#F03</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Gallery Bottom CTA -->
+        <div style="text-align: center; margin-top: 64px;" class="reveal">
+          <p class="section-subtitle" style="margin-bottom: 24px;">
+            هل ترغب بتصميم أو برمجة مشروع مخصص لسيرفرك أو علامتك؟
+          </p>
+          <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            <span>تواصل معنا لبدء مشروعك</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       VANILLA JAVASCRIPT LIGHTBOX MODAL
+       ========================================================================= -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="معاينة العمل">
+    <div class="lightbox-dialog">
+      <!-- Close Button -->
+      <button class="lightbox-close-btn" aria-label="إغلاق المعاينة">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+
+      <!-- Image Area -->
+      <div class="lightbox-image-area">
+        <button class="lightbox-nav-btn prev" aria-label="العمل السابق">
+          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+        </button>
+
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/>" alt="معاينة العمل" class="lightbox-image">
+
+        <button class="lightbox-nav-btn next" aria-label="العمل التالي">
+          <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+        </button>
+      </div>
+
+      <!-- Details Bar -->
+      <div class="lightbox-info">
+        <div class="lightbox-details">
+          <span class="lightbox-tag"></span>
+          <h2 class="lightbox-title"></h2>
+          <p class="lightbox-desc"></p>
+        </div>
+        <div>
+          <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <span>طلب تصميم مشابه</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-box">
+          <div class="footer-brand">
+            <div class="brand-icon-box">
+          <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
+        </div>
+            <span>APX┃Velro</span>
+          </div>
+          <p class="footer-desc">
+            مجتمع رقمي متخصص في MTA والتطوير والخدمات الرقمية.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="tutorials.html">الشروحات والخدمات</a></li>
+            <li><a href="rules.html">القوانين الرسمية</a></li>
+            <li><a href="designs.html">بعض تصاميمنا</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">المجتمع والدعم</h4>
+          <ul class="footer-links">
+            <li><a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer">سيرفر Discord الرسمي</a></li>
+            <li><a href="rules.html">قوانين وإرشادات المجتمع</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © <span class="current-year">2026</span> APX┃Velro — All Rights Reserved.
+        </div>
+        <div>
+          <span>Founder &amp; Developer: Tamim</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       FLOATING BUTTONS
+       ========================================================================= -->
+  <button class="floating-settings-btn" id="floatingSettingsBtn" aria-label="الإعدادات" title="تخصيص المظهر">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+  </button>
+
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="العودة للأعلى" title="العودة للأعلى">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- =========================================================================
+       SETTINGS OVERLAY & DRAWER
+       ========================================================================= -->
+  <div class="settings-overlay" id="settingsOverlay" aria-modal="true" role="dialog" aria-label="قسم الإعدادات">
+    <div class="settings-drawer" id="settingsDrawer">
+      <div class="settings-header">
+        <div class="settings-title-group">
+          <svg viewBox="0 0 24 24" class="settings-icon" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>تخصيص المظهر</span>
+        </div>
+        <button class="settings-close-btn" id="closeSettingsBtn" aria-label="إغلاق الإعدادات">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- 1. Theme / Night & Light Mode -->
+      <div class="settings-group">
+        <label class="settings-group-label">الوضع الليلي والسمة</label>
+        <div class="theme-options-grid">
+          <button class="theme-option-card active" data-theme-val="midnight">
+            <div class="theme-preview" style="background:#08090D;"></div>
+            <span>Midnight (داكن ملكي)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="oled">
+            <div class="theme-preview" style="background:#000000;"></div>
+            <span>OLED Black (سواد نقي)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="cyber">
+            <div class="theme-preview" style="background:#040813;"></div>
+            <span>Cyber Blue (أزرق تقني)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="violet">
+            <div class="theme-preview" style="background:#080614;"></div>
+            <span>Neon Violet (بنفسجي نيون)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="light" style="grid-column: span 2;">
+            <div class="theme-preview" style="background:#FFFFFF; border: 1px solid #CBD5E1;"></div>
+            <span>☀️ الوضع النهاري (أبيض ناصع)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 1.5 Ambience FX Mode (Rain, Stars, Snow, Matrix, Off) -->
+      <div class="settings-group">
+        <label class="settings-group-label">خلفية الأجواء التفاعلية (Ambience FX)</label>
+        <div class="ambient-effects-grid">
+          <button class="ambient-fx-btn active" data-fx-val="rain">
+            <span class="fx-emoji">🌧️</span>
+            <span class="fx-title">مطر سينمائي</span>
+          </button>
+          <button class="ambient-fx-btn" data-fx-val="stars">
+            <span class="fx-emoji">✨</span>
+            <span class="fx-title">شهب ونجوم</span>
+          </button>
+          <button class="ambient-fx-btn" data-fx-val="snow">
+            <span class="fx-emoji">❄️</span>
+            <span class="fx-title">ثلج وجزيئات</span>
+          </button>
+          <button class="ambient-fx-btn" data-fx-val="matrix">
+            <span class="fx-emoji">⚡</span>
+            <span class="fx-title">مصفوفة ديجيتال</span>
+          </button>
+          <button class="ambient-fx-btn" data-fx-val="off" style="grid-column: span 2;">
+            <span class="fx-emoji">🚫</span>
+            <span class="fx-title">إيقاف التأثير المتحرك</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <label class="settings-group-label">لون التمييز — Accent Color</label>
+        <div class="accent-dots-row">
+          <button class="accent-dot-btn active" data-accent-val="blurple" style="--dot-color:#5865F2;" title="Discord Blurple"></button>
+          <button class="accent-dot-btn" data-accent-val="purple" style="--dot-color:#8B5CF6;" title="Studio Purple"></button>
+          <button class="accent-dot-btn" data-accent-val="cyan" style="--dot-color:#00D2FF;" title="Cyber Cyan"></button>
+          <button class="accent-dot-btn" data-accent-val="emerald" style="--dot-color:#10B981;" title="Emerald Green"></button>
+          <button class="accent-dot-btn" data-accent-val="amber" style="--dot-color:#F59E0B;" title="Amber Gold"></button>
+          <button class="accent-dot-btn" data-accent-val="crimson" style="--dot-color:#FF3366;" title="Crimson Red"></button>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <label class="settings-group-label">الخط العربي — Arabic Font</label>
+        <div class="font-options-list">
+          <button class="font-option-btn active" data-font-val="cairo" style="font-family:'Cairo',sans-serif;">Cairo — كايرو</button>
+          <button class="font-option-btn" data-font-val="tajawal" style="font-family:'Tajawal',sans-serif;">Tajawal — تجول</button>
+          <button class="font-option-btn" data-font-val="almarai" style="font-family:'Almarai',sans-serif;">Almarai — المراعي</button>
+          <button class="font-option-btn" data-font-val="ibm" style="font-family:'IBM Plex Sans Arabic',sans-serif;">IBM Plex Arabic — آي بي إم</button>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <label class="settings-group-label">حجم الخط — Font Size</label>
+        <div class="size-btns-row">
+          <button class="size-btn" data-size-val="sm">صغير</button>
+          <button class="size-btn active" data-size-val="md">متوسط</button>
+          <button class="size-btn" data-size-val="lg">كبير</button>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <label class="settings-group-label">المؤثرات البصرية</label>
+        <div class="toggle-control-item">
+          <div class="toggle-info">
+            <span>التأثيرات الحركية (Animations)</span>
+            <small>حركات الظهور والانتقال السلس</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="motionToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+        <div class="toggle-control-item" style="margin-top: 10px;">
+          <div class="toggle-info">
+            <span>توهج النيون (Glow Aura)</span>
+            <small>توهج الأزرار وإضاءة الإطارات</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="glowToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+        <div class="toggle-control-item" style="margin-top: 10px;">
+          <div class="toggle-info">
+            <span>🔊 المؤثرات الصوتية (Sound FX)</span>
+            <small>أصوات تفاعلية خفيفة عند النقر والتنقل</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="soundToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+        <div class="toggle-control-item" style="margin-top: 10px;">
+          <div class="toggle-info">
+            <span>🌧 مطر الخلفية (Rain Effect)</span>
+            <small>تأثير مطر متحرك في خلفية الموقع</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="rainToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-footer-actions">
+        <button class="btn btn-secondary btn-sm" id="resetSettingsBtn" style="width: 100%;">
+          <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+          <span>استعادة الإعدادات الافتراضية</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
