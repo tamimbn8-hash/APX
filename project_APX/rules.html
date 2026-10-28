@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>القوانين الرسمية — APX┃Velro</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="القوانين واللوائح الرسمية لمجتمع APX┃Velro لضمان بيئة آمنة ومحترمة متوافقة مع إرشادات Discord.">
+  <meta name="keywords" content="قوانين ديسكورد, APX Velro Rules, إرشادات السيرفر, شروط الاستخدام, MTA Community Rules">
+  <meta name="author" content="Tamim - APX┃Velro">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="القوانين الرسمية — APX┃Velro">
+  <meta property="og:description" content="يرجى قراءة القوانين قبل المشاركة في مجتمع APX┃Velro لضمان بيئة آمنة للجميع.">
+  <meta property="og:image" content="assets/images/rules-banner.png">
+  <meta property="og:locale" content="ar_AR">
+
+  <!-- Favicon / Theme Color -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <meta name="theme-color" content="#08090D">
+
+  <!-- Google Fonts: Cairo, Tajawal, Almarai, IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/rules-modern.css">
+</head>
+<body>
+
+  <!-- Rain Canvas Background -->
+  <canvas id="rainCanvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" aria-label="APX Velro الرئيسية">
+        <div class="brand-icon-box">
+          <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-name">
+          <span>APX</span>
+          <span class="brand-bar">┃</span>
+          <span>Velro</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="tutorials.html" class="nav-link">الشروحات</a>
+        <a href="rules.html" class="nav-link active">القوانين</a>
+        <a href="designs.html" class="nav-link">بعض تصاميمنا</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- User Auth Slot (Discord Login / User Profile Pill) -->
+        <div class="user-auth-slot" id="userAuthSlot"></div>
+
+        <!-- Settings Nav Button -->
+        <button class="nav-icon-btn" id="navSettingsBtn" aria-label="تخصيص المظهر" title="تخصيص المظهر والخطوط">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+
+        <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          <span>انضم إلى السيرفر</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="تبديل القائمة" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="section-badge reveal">
+          <span class="animated-emoji">🛡️</span>
+          <span>دستور وضوابط مجتمع APX┃Velro</span>
+        </div>
+        <h1 class="section-title reveal">القوانين الرسمية <span class="emoji-bounce">📜</span></h1>
+        <p class="section-subtitle reveal">
+          "نظام دقيق وقواعد واضحة تضمن للجميع بيئة آمنة، عادلة، وراقية تليق بأعضاء مجتمعنا."
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <!-- Banner & Callout -->
+        <div class="rules-hero-banner reveal">
+          <img src="assets/images/rules-banner.png" alt="APX┃Velro Community Rules Banner" width="1376" height="768" loading="eager">
+        </div>
+
+        <!-- Compliance Callout -->
+        <div class="rules-compliance-card reveal">
+          <div class="compliance-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <div class="compliance-info">
+            <h3>اتفاقية الامتثال وسياسات Discord الرسمية</h3>
+            <p>جميع القوانين المعمول بها في مجتمع وموقع APX┃Velro تخضع للسياسات الإرشادية لشركة Discord وشروط الخدمة العالمية. المشاركة في السيرفر أو استخدام الموقع تعني موافقتك التامة عليها.</p>
+          </div>
+          <div class="compliance-links">
+            <a href="https://discord.com/guidelines" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+              <span>Discord Guidelines</span> ↗
+            </a>
+            <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+              <span>Discord Terms</span> ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- QUICK JUMP NAVIGATION TABS (6 STRUCTURED SECTIONS) -->
+        <div class="rules-nav-sticky reveal">
+          <div class="rules-search-bar">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="rulesSearchInput" placeholder="ابحث في نصوص القوانين (مثال: احترام، سبام، تسريب، عقوبات)...">
+          </div>
+
+          <div class="rules-section-pills" role="tablist">
+            <a href="#sec-01" class="rule-pill-nav active" data-sec="sec-01">01 القواعد العامة</a>
+            <a href="#sec-02" class="rule-pill-nav" data-sec="sec-02">02 قوانين Discord</a>
+            <a href="#sec-03" class="rule-pill-nav" data-sec="sec-03">03 قوانين الموقع</a>
+            <a href="#sec-04" class="rule-pill-nav" data-sec="sec-04">04 الخدمات والبرمجة</a>
+            <a href="#sec-05" class="rule-pill-nav" data-sec="sec-05">05 إرشادات الإدارة</a>
+            <a href="#sec-06" class="rule-pill-nav" data-sec="sec-06">06 العقوبات والسياسات</a>
+          </div>
+        </div>
+
+        <div id="noRulesFound" class="no-rules-found" style="display:none;">
+          <div class="no-rules-title">لم يتم العثور على أي قانون يطابق بحثك</div>
+          <div class="no-rules-subtitle">جرّب البحث بكلمة أخرى مثل "احترام" أو "تسريب" أو "سبام".</div>
+        </div>
+
+        <!-- SECTION 01: GENERAL RULES & BEHAVIOR -->
+        <section class="rules-master-section" id="sec-01">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">01</div>
+            <div>
+              <h2 class="chapter-title">القواعد العامة والسلوك (General Rules)</h2>
+              <span class="chapter-desc">الضوابط الأساسية التي تحكم التعامل بين جميع الأفراد داخل مجتمعنا.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 01 -->
+            <article class="modern-rule-card reveal" data-keywords="احترام سب إهانة تنمر استفزاز تحرش أسلوب">
+              <div class="rule-card-top">
+                <span class="rule-index">#01</span>
+                <span class="rule-badge badge-normal">سلوك أساسي</span>
+              </div>
+              <h3 class="rule-heading">الاحترام المتبادل ومنع التنمر</h3>
+              <p class="rule-body">
+                يجب الالتزام بالاحترام التام لجميع أعضاء المجتمع وإدارته. يُمنع منعاً باتاً السب، الإهانة، التنمر، الاستفزاز المتعمد، أو التحرش اللفظي بأي شكل من الأشكال في كافة القنوات العامة والخاصة.
+              </p>
+            </article>
+
+            <!-- Rule 02 -->
+            <article class="modern-rule-card reveal" data-keywords="كراهية تمييز عنصرية دين طائفة قومية فئات">
+              <div class="rule-card-top">
+                <span class="rule-index">#02</span>
+                <span class="rule-badge badge-warning">مكافحة الكراهية</span>
+              </div>
+              <h3 class="rule-heading">منع الكراهية والتمييز العنصري</h3>
+              <p class="rule-body">
+                يُمنع منعاً قاطعاً نشر أو ترويج أو تشجيع أي خطاب كراهية، تعصب، أو تمييز عنصري، ديني، طائفي، قومي، أو فئوي. مجتمع APX┃Velro مساحة جامعة تسع الجميع بأخلاق راقية.
+              </p>
+            </article>
+
+            <!-- Rule 03 -->
+            <article class="modern-rule-card reveal" data-keywords="تهديد ابتزاز تحريض عنف إيذاء">
+              <div class="rule-card-top">
+                <span class="rule-index">#03</span>
+                <span class="rule-badge badge-danger">أمان جسيم</span>
+              </div>
+              <h3 class="rule-heading">منع التهديد والابتزاز</h3>
+              <p class="rule-body">
+                يُمنع التهديد المباشر أو المبطن، أو التحريض على إيذاء الآخرين، أو الابتزاز المالي أو المعنوي بأي وسيلة كانت. هذه المخالفة تعرض صاحبها للعزل والحظر الفوري.
+              </p>
+            </article>
+
+            <!-- Rule 04 -->
+            <article class="modern-rule-card reveal" data-keywords="خصوصية معلومات شخصية دكس doxxing صور أرقام">
+              <div class="rule-card-top">
+                <span class="rule-index">#04</span>
+                <span class="rule-badge badge-danger">حماية الخصوصية</span>
+              </div>
+              <h3 class="rule-heading">حماية الخصوصية ومنع الـ Doxxing</h3>
+              <p class="rule-body">
+                يُمنع نشر، تسريب، أو طلب أي معلومات شخصية تخص أي عضو (Doxxing) بما في ذلك الأسماء الكاملة، الصور الشخصية، أرقام الهواتف، أو الحسابات البنكية دون موافقة كتابية صريحة.
+              </p>
+            </article>
+
+            <!-- Rule 05 -->
+            <article class="modern-rule-card reveal" data-keywords="نصب احتيال انتحال خداع سرقة مال">
+              <div class="rule-card-top">
+                <span class="rule-index">#05</span>
+                <span class="rule-badge badge-danger">مكافحة الاحتيال</span>
+              </div>
+              <h3 class="rule-heading">منع النصب والاحتيال وانتحال الشخصية</h3>
+              <p class="rule-body">
+                يُمنع النصب أو الاحتيال أو انتحال شخصية أي عضو، مبرمج، أو إداري في السيرفر بهدف الاستيلاء على أموال أو ملفات برمجية. أي محاولة تدليس تواجه بحظر دائم وبلاغ رسمي.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION 02: DISCORD & SECURITY RULES -->
+        <section class="rules-master-section" id="sec-02">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">02</div>
+            <div>
+              <h2 class="chapter-title">قوانين ديسكورد والأمان (Discord &amp; Security Rules)</h2>
+              <span class="chapter-desc">حماية خوادمنا وأعضائنا من التهديدات السيبرانية والروابط الضارة والسبام.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 06 -->
+            <article class="modern-rule-card card-highlight-danger reveal" data-keywords="ملفات ضارة فيروسات malware grabber stealer روابط مشبوهة اختراق">
+              <div class="rule-card-top">
+                <span class="rule-index">#06</span>
+                <span class="rule-badge badge-danger">خط أحمر سيبراني</span>
+              </div>
+              <h3 class="rule-heading">منع الروابط والملفات الضارة (Malware)</h3>
+              <p class="rule-body">
+                يُمنع منعاً باتاً نشر أو إرسال أو تبادل أي برمجيات أو روابط خبيثة تشمل:
+              </p>
+              <div class="rule-tag-chips">
+                <span>Malware</span>
+                <span>Viruses</span>
+                <span>Token Grabbers</span>
+                <span>Phishing Links</span>
+                <span>Stealers</span>
+              </div>
+              <p class="rule-note-text">
+                * عقوبة هذه المخالفة هي الحظر النهائي الفوري مع تعميم الحساب في قوائم الحماية المشتركة.
+              </p>
+            </article>
+
+            <!-- Rule 07 -->
+            <article class="modern-rule-card reveal" data-keywords="سبام إعلانات نشر تكرار إزعاج خاص dm spam">
+              <div class="rule-card-top">
+                <span class="rule-index">#07</span>
+                <span class="rule-badge badge-warning">تنظيم ونقاء</span>
+              </div>
+              <h3 class="rule-heading">منع السبام والإعلانات غير المصرح بها</h3>
+              <p class="rule-body">
+                يُمنع التكرار المزعج للرسائل والمنشنات العشوائية، أو نشر إعلانات لسيرفرات أخرى سواء في الرومات العامة أو عبر الرسائل الخاصة (Direct Messages) لأعضاء المجتمع.
+              </p>
+            </article>
+
+            <!-- Rule 08 -->
+            <article class="modern-rule-card reveal" data-keywords="شروط ديسكورد tos guidelines إرشادات رسمية سن قانوني">
+              <div class="rule-card-top">
+                <span class="rule-index">#08</span>
+                <span class="rule-badge badge-normal">سياسة منصة</span>
+              </div>
+              <h3 class="rule-heading">الالتزام الكامل بشروط خدمة Discord</h3>
+              <p class="rule-body">
+                يجب الالتزام بجميع بنود وشروط خدمة Discord الرسمية بما يشمل السن القانوني المسموح به لاستخدام المنصة، ومنع استخدام أي إضافات غير رسمية (Self-bots) تخالف شروط الشركة.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION 03: WEBSITE & ACCOUNT RULES -->
+        <section class="rules-master-section" id="sec-03">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">03</div>
+            <div>
+              <h2 class="chapter-title">قوانين الموقع والحسابات (Website &amp; Accounts)</h2>
+              <span class="chapter-desc">الضوابط المنظمة لاستخدام منصة وموقع APX┃Velro ونظام تسجيل الدخول.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 09 -->
+            <article class="modern-rule-card reveal" data-keywords="أمان الحساب تسجيل دخول كلمة مرور مشاركة صلاحيات">
+              <div class="rule-card-top">
+                <span class="rule-index">#09</span>
+                <span class="rule-badge badge-normal">أمان الحساب</span>
+              </div>
+              <h3 class="rule-heading">مسؤولية وأمان حساب المستخدم</h3>
+              <p class="rule-body">
+                أنت المسؤول الأول عن أي نشاط يصدر من حساب Discord المسجل به على الموقع. لا تشارك بيانات اعتمادك أو جلسات دخولك مع أي طرف ثالث تحت أي ظرف.
+              </p>
+            </article>
+
+            <!-- Rule 10 -->
+            <article class="modern-rule-card reveal" data-keywords="ثغرات عبث هجوم ddos exploit تلاعب برمجيات">
+              <div class="rule-card-top">
+                <span class="rule-index">#10</span>
+                <span class="rule-badge badge-danger">حماية المنظومة</span>
+              </div>
+              <h3 class="rule-heading">منع محاولات العبث أو استغلال الثغرات</h3>
+              <p class="rule-body">
+                يُمنع إجراء أي هجمات حرمان من الخدمة (DoS/DDoS) أو استغلال ثغرات أمنية في خوادم أو واجهات الموقع. في حال اكتشافك لأي ثغرة برمجية، يرجى إبلاغ الـ Owner فوراً لتحصل على مكافأة تقديرية.
+              </p>
+            </article>
+
+            <!-- Rule 11 -->
+            <article class="modern-rule-card reveal" data-keywords="استخدام مشروع بوتات سحب بيانات scraping نزاهة">
+              <div class="rule-card-top">
+                <span class="rule-index">#11</span>
+                <span class="rule-badge badge-normal">الاستخدام النزيه</span>
+              </div>
+              <h3 class="rule-heading">سياسة الاستخدام المشروع للمنصة</h3>
+              <p class="rule-body">
+                استخدام الموقع متاح للأعضاء للاستفادة من الخدمات، المقالات، الموارد والأنظمة التفاعلية. يُمنع استخدام أدوات سحب البيانات التلقائية (Web Scraping) غير المصرح بها.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION 04: SERVICES, MTA & DIGITAL RESOURCES -->
+        <section class="rules-master-section" id="sec-04">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">04</div>
+            <div>
+              <h2 class="chapter-title">قوانين الخدمات والبرمجة والموارد (Services &amp; MTA Rules)</h2>
+              <span class="chapter-desc">حماية الملكية الفكرية، حقوق المطورين، وتنظيم طلبات البرمجة والتصميم.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 12 -->
+            <article class="modern-rule-card reveal" data-keywords="ملكية فكرية أكواد حقوق برمجة تصميم سكربتات سرقة">
+              <div class="rule-card-top">
+                <span class="rule-index">#12</span>
+                <span class="rule-badge badge-warning">حقوق ملكية</span>
+              </div>
+              <h3 class="rule-heading">حماية الملكية الفكرية وحقوق المطورين</h3>
+              <p class="rule-body">
+                جميع المودات والسكربتات، البوتات، التصاميم والمواقع المنتجة من قبل فريق APX┃Velro محمية بحقوق الملكية الفكرية. يُمنع سرقة الأكواد أو إزالة حقوق المطورين الأصلية.
+              </p>
+            </article>
+
+            <!-- Rule 13 -->
+            <article class="modern-rule-card card-highlight-danger reveal" data-keywords="تسريب تسريبات leaks إعادة بيع reselling متاجرة غير مشروعة">
+              <div class="rule-card-top">
+                <span class="rule-index">#13</span>
+                <span class="rule-badge badge-danger">منع التسريب</span>
+              </div>
+              <h3 class="rule-heading">منع تسريب أو إعادة بيع الموارد المدفوعة</h3>
+              <p class="rule-body">
+                يُمنع منعاً باتاً نشر أو تسريب (Leaks) أي سكربتات، ملفات، أو تصاميم تم شراؤها، أو محاولة إعادة بيعها لأطراف أخرى دون ترخيص صريح من إدارة APX┃Velro.
+              </p>
+            </article>
+
+            <!-- Rule 14 -->
+            <article class="modern-rule-card reveal" data-keywords="تذاكر طلب خدمات دعم ticket رسمي معتمد">
+              <div class="rule-card-top">
+                <span class="rule-index">#14</span>
+                <span class="rule-badge badge-normal">تنظيم الطلبات</span>
+              </div>
+              <h3 class="rule-heading">طلب الخدمات عبر نظام التذاكر الرسمي فقط</h3>
+              <p class="rule-body">
+                يتم طلب جميع الخدمات والبرمجيات والمودات والتصاميم حصراً من خلال قنوات التذاكر (Tickets) المعتمدة في سيرفر الديسكورد الرسمي لتوثيق الاتفاقيات وحماية حقوق الطرفين.
+              </p>
+            </article>
+
+            <!-- Rule 15 -->
+            <article class="modern-rule-card reveal" data-keywords="اتفاقية التزام متطلبات مشروع مواعيد تسليم">
+              <div class="rule-card-top">
+                <span class="rule-index">#15</span>
+                <span class="rule-badge badge-normal">التزام ومصداقية</span>
+              </div>
+              <h3 class="rule-heading">وضوح المتطلبات والالتزام بالاتفاقيات</h3>
+              <p class="rule-body">
+                يجب على العميل تقديم تفاصيل دقيقة لمتطلبات مشروعه البرمجي. التعديلات الإضافية بعد تسليم المشروع المتفق عليه تخضع لتقدير المطور وفق نطاق العمل الأصلي.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION 05: STAFF & MODERATION GUIDELINES -->
+        <section class="rules-master-section" id="sec-05">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">05</div>
+            <div>
+              <h2 class="chapter-title">إرشادات وضوابط الإدارة (Staff Guidelines)</h2>
+              <span class="chapter-desc">ميثاق شرف الإداريين والمشرفين لضمان العدالة والنزاهة المؤسسية.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 16 -->
+            <article class="modern-rule-card reveal" data-keywords="حياد عدل مساواة إنصاف إدارة نزاهة">
+              <div class="rule-card-top">
+                <span class="rule-index">#16</span>
+                <span class="rule-badge badge-normal">عدالة إدارية</span>
+              </div>
+              <h3 class="rule-heading">الالتزام بالحيادية والإنصاف التام</h3>
+              <p class="rule-body">
+                يلتزم جميع أفراد الهيكل الإداري (Moderator, Admin, Head Admin, Founder) بالتعامل بحيادية ومساواة تامة بين الأعضاء بعيداً عن أي علاقات شخصية أو انحيازات مسبقة.
+              </p>
+            </article>
+
+            <!-- Rule 17 -->
+            <article class="modern-rule-card reveal" data-keywords="استغلال سلطة صلاحيات رتبة تجاوزات منفعة">
+              <div class="rule-card-top">
+                <span class="rule-index">#17</span>
+                <span class="rule-badge badge-warning">نزاهة المسؤولية</span>
+              </div>
+              <h3 class="rule-heading">منع استغلال الرتب أو الصلاحيات الإدارية</h3>
+              <p class="rule-body">
+                أي استغلال للصلاحيات الإدارية لتحقيق منافع شخصية، أو التعدي غير المبرر على الأعضاء، أو إساءة استخدام أوامر الكتم والطرد يعرض الإداري للعزل الفوري والمحاسبة.
+              </p>
+            </article>
+
+            <!-- Rule 18 -->
+            <article class="modern-rule-card reveal" data-keywords="توثيق سجلات log audit إثبات شفافية">
+              <div class="rule-card-top">
+                <span class="rule-index">#18</span>
+                <span class="rule-badge badge-normal">شفافية وتوثيق</span>
+              </div>
+              <h3 class="rule-heading">توثيق العقوبات والقرارات الإدارية</h3>
+              <p class="rule-body">
+                يجب على كل إداري تسجيل سبب العقوبة وتوثيقها بدليل واضح في قنوات السجلات (Mod-Logs) لضمان الشفافية وإتاحة مراجعة القرار من قِبل الـ Head Admin والـ Owner.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION 06: PUNISHMENTS & SANCTIONS HIERARCHY -->
+        <section class="rules-master-section" id="sec-06">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">06</div>
+            <div>
+              <h2 class="chapter-title">العقوبات وسياسة التدرج التأديبي (Punishments &amp; Policy)</h2>
+              <span class="chapter-desc">الإجراءات المتبعة عند ارتكاب أي مخالفة لضمان الانضباط والنظام.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 19 -->
+            <article class="modern-rule-card reveal" data-keywords="سلم عقوبات تدرج تنبيه إنذار إسكات timeout طرد kick حظر ban">
+              <div class="rule-card-top">
+                <span class="rule-index">#19</span>
+                <span class="rule-badge badge-warning">تدرج تأديبي</span>
+              </div>
+              <h3 class="rule-heading">السلم التدريجي للعقوبات الإدارية</h3>
+              <p class="rule-body">
+                تطبق العقوبات وفق التدرج الطبيعي حسب جسامة المخالفة وتكرارها من قِبل العضو:
+              </p>
+              <div class="sanctions-steps-row">
+                <div class="step-chip"><span>1</span> تنبيه شفهي</div>
+                <div class="step-chip"><span>2</span> إنذار رسمي</div>
+                <div class="step-chip"><span>3</span> إسكات مؤقت (Timeout)</div>
+                <div class="step-chip"><span>4</span> طرد من السيرفر (Kick)</div>
+                <div class="step-chip danger"><span>5</span> حظر نهائي (Ban)</div>
+              </div>
+            </article>
+
+            <!-- Rule 20 -->
+            <article class="modern-rule-card card-highlight-danger reveal" data-keywords="حظر فوري صفر تسامح zero tolerance تسريب سبام جسيم سرقة">
+              <div class="rule-card-top">
+                <span class="rule-index">#20</span>
+                <span class="rule-badge badge-danger">حظر فوري نهائي</span>
+              </div>
+              <h3 class="rule-heading">المخالفات الجسيمة (Zero Tolerance)</h3>
+              <p class="rule-body">
+                المخالفات الجسيمة مثل نشر البرمجيات الخبيثة، سرقة الحسابات، النصب، أو تسريب الأكواد الخاصة توجب الحظر النهائي الفوري (Permanent Ban) وإزالة جميع الصلاحيات دون تدرج تأديبي.
+              </p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-box">
+          <div class="footer-brand">
+            <div class="brand-icon-box">
+              <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
+            </div>
+            <span>APX┃Velro</span>
+          </div>
+          <p class="footer-desc">
+            مجتمع رقمي متخصص في MTA والتطوير والخدمات الرقمية.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="tutorials.html">الشروحات والخدمات</a></li>
+            <li><a href="rules.html">القوانين الرسمية</a></li>
+            <li><a href="designs.html">بعض تصاميمنا</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">المجتمع والدعم</h4>
+          <ul class="footer-links">
+            <li><a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer">سيرفر Discord الرسمي</a></li>
+            <li><a href="rules.html">قوانين وإرشادات المجتمع</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © <span class="current-year">2026</span> APX┃Velro — All Rights Reserved.
+        </div>
+        <div>
+          <span>Founder &amp; Developer: Tamim</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Settings & Back-to-Top Buttons -->
+  <button class="floating-settings-btn" id="floatingSettingsBtn" aria-label="الإعدادات" title="تخصيص المظهر">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+  </button>
+
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="العودة للأعلى" title="العودة للأعلى">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- Settings Drawer -->
+  <div class="settings-overlay" id="settingsOverlay" aria-modal="true" role="dialog" aria-label="قسم الإعدادات">
+    <div class="settings-drawer" id="settingsDrawer">
+      <div class="settings-header">
+        <div class="settings-title-group">
+          <svg viewBox="0 0 24 24" class="settings-icon" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>تخصيص المظهر</span>
+        </div>
+        <button class="settings-close-btn" id="closeSettingsBtn" aria-label="إغلاق الإعدادات">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- Theme Mode -->
+      <div class="settings-group">
+        <label class="settings-group-label">الوضع الليلي والسمة</label>
+        <div class="theme-options-grid">
+          <button class="theme-option-card active" data-theme-val="midnight">
+            <div class="theme-preview" style="background:#08090D;"></div>
+            <span>Midnight (داكن ملكي)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="oled">
+            <div class="theme-preview" style="background:#000000;"></div>
+            <span>OLED Black (سواد نقي)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="cyber">
+            <div class="theme-preview" style="background:#040813;"></div>
+            <span>Cyber Blue (أزرق تقني)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="violet">
+            <div class="theme-preview" style="background:#080614;"></div>
+            <span>Neon Violet (بنفسجي نيون)</span>
+          </button>
+          <button class="theme-option-card" data-theme-val="light" style="grid-column: span 2;">
+            <div class="theme-preview" style="background:#FFFFFF; border: 1px solid #CBD5E1;"></div>
+            <span>☀️ الوضع النهاري (أبيض ناصع)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Ambience FX -->
+      <div class="settings-group">
+        <label class="settings-group-label">خلفية الأجواء التفاعلية (Ambience FX)</label>
+        <div class="ambient-effects-grid">
+          <button class="ambient-fx-btn active" data-fx-val="rain"><span class="fx-emoji">🌧️</span><span class="fx-title">مطر سينمائي</span></button>
+          <button class="ambient-fx-btn" data-fx-val="stars"><span class="fx-emoji">✨</span><span class="fx-title">شهب ونجوم</span></button>
+          <button class="ambient-fx-btn" data-fx-val="snow"><span class="fx-emoji">❄️</span><span class="fx-title">ثلج وجزيئات</span></button>
+          <button class="ambient-fx-btn" data-fx-val="matrix"><span class="fx-emoji">⚡</span><span class="fx-title">مصفوفة ديجيتال</span></button>
+          <button class="ambient-fx-btn" data-fx-val="off" style="grid-column: span 2;"><span class="fx-emoji">🚫</span><span class="fx-title">إيقاف التأثير</span></button>
+        </div>
+      </div>
+
+      <!-- Member Mascot Widget Settings -->
+      <div class="settings-group" id="widgetSettingsGroup">
+        <label class="settings-group-label">المرافق التفاعلي (Member Mascot Widget)</label>
+        
+        <div class="toggle-control-item">
+          <div class="toggle-info">
+            <span>تفعيل المرافق (Enable Widget)</span>
+            <small>كائن رقمي ينمو ويتطور مع أيام عضويتك</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="mascotToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+
+        <div style="margin-top:12px;">
+          <span style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:6px;">موقع المرافق على الشاشة:</span>
+          <div class="widget-pos-grid">
+            <button class="pos-btn" data-pos="bottom-right">أسفل يمين</button>
+            <button class="pos-btn" data-pos="bottom-left">أسفل يسار</button>
+            <button class="pos-btn" data-pos="top-right">أعلى يمين</button>
+            <button class="pos-btn" data-pos="top-left">أعلى يسار</button>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <span style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:6px;">شخصية المرافق (Mascot Skin):</span>
+          <div class="widget-skin-grid">
+            <button class="skin-btn active" data-skin="neon_dragon">🐉 تنين أبيكس</button>
+            <button class="skin-btn" data-skin="cyber_familiar">🦊 ثعلب سيبراني</button>
+            <button class="skin-btn" data-skin="matrix_bot">🤖 بوت المصفوفة</button>
+            <button class="skin-btn" data-skin="shadow_wolf">🐺 ذئب الظلال</button>
+          </div>
+        </div>
+
+        <div class="toggle-control-item" style="margin-top: 12px;">
+          <div class="toggle-info">
+            <span>صوت تفاعل المرافق (Mascot Sound)</span>
+            <small>تشغيل صوت ناعم عند النقر على المرافق</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="mascotSoundToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Accent Color -->
+      <div class="settings-group">
+        <label class="settings-group-label">لون التمييز — Accent Color</label>
+        <div class="accent-dots-row">
+          <button class="accent-dot-btn active" data-accent-val="blurple" style="--dot-color:#5865F2;" title="Discord Blurple"></button>
+          <button class="accent-dot-btn" data-accent-val="purple" style="--dot-color:#8B5CF6;" title="Studio Purple"></button>
+          <button class="accent-dot-btn" data-accent-val="cyan" style="--dot-color:#00D2FF;" title="Cyber Cyan"></button>
+          <button class="accent-dot-btn" data-accent-val="emerald" style="--dot-color:#10B981;" title="Emerald Green"></button>
+          <button class="accent-dot-btn" data-accent-val="amber" style="--dot-color:#F59E0B;" title="Amber Gold"></button>
+          <button class="accent-dot-btn" data-accent-val="crimson" style="--dot-color:#FF3366;" title="Crimson Red"></button>
+        </div>
+      </div>
+
+      <!-- Arabic Font -->
+      <div class="settings-group">
+        <label class="settings-group-label">الخط العربي — Arabic Font</label>
+        <div class="font-options-list">
+          <button class="font-option-btn active" data-font-val="cairo" style="font-family:'Cairo',sans-serif;">Cairo — كايرو</button>
+          <button class="font-option-btn" data-font-val="tajawal" style="font-family:'Tajawal',sans-serif;">Tajawal — تجول</button>
+          <button class="font-option-btn" data-font-val="almarai" style="font-family:'Almarai',sans-serif;">Almarai — المراعي</button>
+          <button class="font-option-btn" data-font-val="ibm" style="font-family:'IBM Plex Sans Arabic',sans-serif;">IBM Plex Arabic — آي بي إم</button>
+        </div>
+      </div>
+
+      <!-- Font Size -->
+      <div class="settings-group">
+        <label class="settings-group-label">حجم الخط — Font Size</label>
+        <div class="size-btns-row">
+          <button class="size-btn" data-size-val="sm">صغير</button>
+          <button class="size-btn active" data-size-val="md">متوسط</button>
+          <button class="size-btn" data-size-val="lg">كبير</button>
+        </div>
+      </div>
+
+      <!-- Toggles -->
+      <div class="settings-group">
+        <label class="settings-group-label">المؤثرات البصرية والصوت</label>
+        <div class="toggle-control-item">
+          <div class="toggle-info"><span>التأثيرات الحركية (Animations)</span><small>حركات الظهور والانتقال</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="motionToggle" checked><span class="slider-toggle"></span></label>
+        </div>
+        <div class="toggle-control-item" style="margin-top: 10px;">
+          <div class="toggle-info"><span>توهج النيون (Glow Aura)</span><small>توهج الأزرار والإطارات</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="glowToggle" checked><span class="slider-toggle"></span></label>
+        </div>
+        <div class="toggle-control-item" style="margin-top: 10px;">
+          <div class="toggle-info"><span>🔊 المؤثرات الصوتية (Sound FX)</span><small>أصوات تفاعلية خفيفة</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="soundToggle" checked><span class="slider-toggle"></span></label>
+        </div>
+        <div class="toggle-control-item" style="margin-top: 10px;">
+          <div class="toggle-info"><span>🌧 مطر الخلفية (Rain Effect)</span><small>مطر متحرك في الخلفية</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="rainToggle" checked><span class="slider-toggle"></span></label>
+        </div>
+      </div>
+
+      <div class="settings-footer-actions">
+        <button class="btn btn-secondary btn-sm" id="resetSettingsBtn" style="width: 100%;">
+          <span>استعادة الإعدادات الافتراضية</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

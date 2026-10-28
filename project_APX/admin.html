@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة الإدارة والتحكم — APX┃Velro</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <meta name="theme-color" content="#08090D">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Rain Canvas Background -->
+  <canvas id="rainCanvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       ADMIN HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="admin-topbar">
+    <div class="admin-topbar-inner">
+      <div class="admin-brand">
+        <a href="index.html" class="admin-logo-link" title="العودة للموقع الرئيسي">
+          <img src="assets/images/logo.png" alt="APX Velro" class="admin-logo-img">
+          <span class="admin-brand-title">APX┃Velro</span>
+        </a>
+        <span class="admin-badge">Admin Suite v2.0</span>
+      </div>
+
+      <nav class="admin-nav-tabs" role="tablist">
+        <button class="admin-tab-btn active" data-tab="overview" role="tab">
+          <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          <span>نظرة عامة</span>
+        </button>
+        <button class="admin-tab-btn" data-tab="members" role="tab">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span>الأعضاء (Members)</span>
+        </button>
+        <button class="admin-tab-btn" data-tab="activity" role="tab">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <span>سجل النشاطات</span>
+        </button>
+        <button class="admin-tab-btn" data-tab="settings" role="tab">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>إعدادات الموقع</span>
+        </button>
+      </nav>
+
+      <div class="admin-user-pill" id="adminUserPill">
+        <img src="assets/images/tamim.png" alt="Avatar" class="admin-user-avatar" id="adminAvatar">
+        <div class="admin-user-info">
+          <span class="admin-user-name" id="adminDisplayName">تحميل...</span>
+          <span class="admin-user-role-badge" id="adminRoleBadge">Member</span>
+        </div>
+        <a href="index.html" class="btn btn-secondary btn-xs" title="زيارة الموقع">الرئيسية ↗</a>
+        <button class="btn btn-danger-soft btn-xs" id="adminLogoutBtn" title="تسجيل الخروج">خروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-container">
+
+      <!-- ===================================================================
+           TAB 1: OVERVIEW DASHBOARD
+           =================================================================== -->
+      <section class="admin-view active" id="tab-overview">
+        <!-- Overview Stats Grid -->
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper blue">
+              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-label">إجمالي الأعضاء (Total Members)</span>
+              <span class="stat-value" id="statTotalMembers">--</span>
+            </div>
+          </div>
+
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper green">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-label">الأعضاء النشطين (Active Members)</span>
+              <span class="stat-value" id="statActiveMembers">--</span>
+            </div>
+          </div>
+
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper purple">
+              <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-label">أعضاء جدد (آخر 7 أيام)</span>
+              <span class="stat-value" id="statNewMembers">--</span>
+            </div>
+          </div>
+
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper amber">
+              <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-label">الهيكل الإداري (Staff Team)</span>
+              <span class="stat-value" id="statAdminCount">--</span>
+            </div>
+          </div>
+
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper cyan">
+              <svg viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42A6.92 6.92 0 0 1 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.38 1.19-4.47 3-5.74L6.58 4.84A8.93 8.93 0 0 0 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-label">إجمالي تسجيلات الدخول</span>
+              <span class="stat-value" id="statTotalLogins">--</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Growth Chart & Recent Activity Split -->
+        <div class="admin-split-grid">
+          <!-- Growth Chart Card -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div class="admin-card-title">
+                <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                <span>نمو الأعضاء (Members Growth)</span>
+              </div>
+              <span class="admin-badge-subtle">آخر 7 أيام</span>
+            </div>
+            <div class="chart-container" id="growthChartContainer">
+              <!-- Dynamically populated responsive SVG chart -->
+              <svg class="admin-svg-chart" id="growthSvgChart" viewBox="0 0 500 200" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5865F2" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#5865F2" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path id="chartAreaPath" fill="url(#chartGradient)"></path>
+                <path id="chartLinePath" fill="none" stroke="#5865F2" stroke-width="3"></path>
+                <g id="chartPoints"></g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Recent Activity Mini Feed -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div class="admin-card-title">
+                <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                <span>آخر العمليات والنشاطات</span>
+              </div>
+              <button class="btn btn-secondary btn-xs" onclick="switchAdminTab('activity')">عرض الكل</button>
+            </div>
+            <div class="admin-activity-list" id="overviewActivityList">
+              <div class="loading-state">جاري تحميل النشاطات...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 2: MEMBERS MANAGEMENT (PROTECTED)
+           =================================================================== -->
+      <section class="admin-view" id="tab-members">
+        <div class="admin-card">
+          <div class="admin-card-header members-toolbar">
+            <div class="members-title-group">
+              <h2 class="admin-card-heading">إدارة الأعضاء (Members Management)</h2>
+              <p class="admin-card-subheading">قائمة بجميع أعضاء مجتمع APX┃Velro المسجلين عبر Discord مع رتبهم وأيام عضويتهم.</p>
+            </div>
+
+            <!-- Search input -->
+            <div class="members-search-box">
+              <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              <input type="text" id="memberSearchInput" placeholder="بحث بالاسم، المعرّف (Discord ID)، أو الرتبة...">
+            </div>
+          </div>
+
+          <!-- Members Table Container -->
+          <div class="admin-table-responsive">
+            <table class="admin-table" id="membersTable">
+              <thead>
+                <tr>
+                  <th>العضو (Member)</th>
+                  <th>Discord ID</th>
+                  <th>الرتبة (Role)</th>
+                  <th>أيام العضوية (Days)</th>
+                  <th>تاريخ الانضمام</th>
+                  <th>آخر نشاط</th>
+                  <th>إجراءات (Action)</th>
+                </tr>
+              </thead>
+              <tbody id="membersTableBody">
+                <tr>
+                  <td colspan="7" class="loading-state">جاري تحميل قائمة الأعضاء...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 3: FULL AUDIT ACTIVITY LOGS
+           =================================================================== -->
+      <section class="admin-view" id="tab-activity">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="admin-card-heading">سجل النشاطات الكامل (Audit Logs)</h2>
+              <p class="admin-card-subheading">سجل مؤرخ بدقة لجميع العمليات الإدارية، تسجيلات الدخول وتغييرات الرتب.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="refreshActivityBtn">تحديث السجل</button>
+          </div>
+
+          <div class="admin-table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>التاريخ والوقت</th>
+                  <th>المُنفّذ (Actor)</th>
+                  <th>نوع العملية</th>
+                  <th>التفاصيل والوصف</th>
+                  <th>المستهدف (Target)</th>
+                </tr>
+              </thead>
+              <tbody id="fullActivityTableBody">
+                <tr>
+                  <td colspan="5" class="loading-state">جاري تحميل السجل...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 4: SITE SETTINGS & TEAM VISIBILITY
+           =================================================================== -->
+      <section class="admin-view" id="tab-settings">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="admin-card-heading">إعدادات الموقع والتحكم العام</h2>
+              <p class="admin-card-subheading">تخصيص ظهور الأقسام وإدارة الصلاحيات العامة للمنصة.</p>
+            </div>
+          </div>
+
+          <div class="admin-settings-form">
+            <!-- Team Section Visibility Toggle -->
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">ظهور قسم الهيكل الإداري (Admin Team Section)</span>
+                <span class="setting-desc">تحديد ما إذا كان قسم الهيكل الإداري عاماً للجميع (Public) أو خاصاً بالإدارة فقط (Private).</span>
+              </div>
+              <div class="setting-control">
+                <select id="teamVisibilitySelect" class="admin-select">
+                  <option value="public">عام للجميع (Public)</option>
+                  <option value="private">خاص بالإدارة فقط (Private)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Owner Info Card -->
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">معرف مالك النظام (Owner Discord ID)</span>
+                <span class="setting-desc">حساب الـ Owner الحالي للنظام ذو الصلاحيات المطلقة:</span>
+              </div>
+              <div class="setting-control">
+                <span class="owner-id-badge" id="ownerIdDisplay">108108108108108108 (08_1_)</span>
+              </div>
+            </div>
+
+            <div class="setting-actions">
+              <button class="btn btn-primary btn-md" id="saveSiteSettingsBtn">حفظ التغييرات</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       MODAL 1: CHANGE MEMBER ROLE (WITH HIERARCHY SAFEGUARDS)
+       ========================================================================= -->
+  <div class="admin-modal-backdrop" id="roleModal" role="dialog" aria-modal="true" style="display:none;">
+    <div class="admin-modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">تغيير رتبة العضو</h3>
+        <button class="modal-close-btn" id="closeRoleModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-user-summary">
+          <img src="" alt="" class="modal-avatar" id="modalUserAvatar">
+          <div>
+            <h4 id="modalUserName">--</h4>
+            <span class="modal-current-role" id="modalCurrentRole">--</span>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label class="form-label">اختر الرتبة الجديدة:</label>
+          <select id="newRoleSelect" class="admin-select" style="width:100%;">
+            <option value="Member">Member (عضو عادي)</option>
+            <option value="Moderator">Moderator (مشرف)</option>
+            <option value="Admin">Admin (مسؤول)</option>
+            <option value="Head Admin">Head Admin (رئيس إدارة)</option>
+            <option value="Founder">Founder (مؤسس شريك)</option>
+          </select>
+          <small class="form-help-text" id="roleHierarchyNote">
+            * لا يمكنك ترقية أي عضو إلى رتبة مساوية أو أعلى من رتبتك الحالية.
+          </small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="cancelRoleModalBtn">إلغاء</button>
+        <button class="btn btn-primary btn-sm" id="confirmChangeRoleBtn">تأكيد تغيير الرتبة</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: MEMBER PROFILE CARD
+       ========================================================================= -->
+  <div class="admin-modal-backdrop" id="profileModal" role="dialog" aria-modal="true" style="display:none;">
+    <div class="admin-modal-dialog profile-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">الملف التعريفي للعضو</h3>
+        <button class="modal-close-btn" id="closeProfileModalBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="profileModalBody">
+        <!-- Dynamically injected -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="closeProfileBtn">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

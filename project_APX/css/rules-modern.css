@@ -1,0 +1,364 @@
+/**
+ * APX┃Velro — Modern Rules Stylesheet
+ * High-Contrast • Structured Sections 01-06 • Numbered Cards • Mobile Friendly
+ */
+
+/* Compliance Card */
+.rules-compliance-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(17, 21, 29, 0.7);
+  border: 1px solid rgba(88, 101, 242, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+.compliance-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(88, 101, 242, 0.15);
+  color: #5865F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.compliance-icon-box svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.compliance-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.compliance-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.compliance-info p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary, #9AA3B2);
+  line-height: 1.6;
+}
+
+.compliance-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── STICKY NAVIGATION TABS & SEARCH ────────────────────────── */
+.rules-nav-sticky {
+  position: sticky;
+  top: 76px;
+  z-index: 100;
+  background: rgba(8, 9, 13, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin: 36px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.rules-search-bar {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.rules-search-bar svg {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: var(--text-muted, #64748B);
+}
+
+.rules-search-bar input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 42px 10px 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.88rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.rules-search-bar input:focus {
+  border-color: #5865F2;
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+}
+
+.rules-section-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.rule-pill-nav {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary, #9AA3B2);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.rule-pill-nav:hover,
+.rule-pill-nav.active {
+  color: #fff;
+  background: #5865F2;
+  border-color: #5865F2;
+  box-shadow: 0 2px 10px rgba(88, 101, 242, 0.35);
+}
+
+/* ── CHAPTER HEADERS (01 to 06) ─────────────────────────────── */
+.rules-master-section {
+  margin-bottom: 56px;
+  scroll-margin-top: 150px;
+}
+
+.section-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chapter-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #5865F2;
+  font-family: var(--font-mono, monospace);
+  line-height: 1;
+  background: linear-gradient(135deg, #5865F2 0%, #7C5CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  flex-shrink: 0;
+}
+
+.chapter-title {
+  margin: 0 0 4px 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.chapter-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #9AA3B2);
+}
+
+/* ── MODERN RULES GRID & CARDS ──────────────────────────────── */
+.rules-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .rules-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modern-rule-card {
+  background: #11151D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-rule-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(88, 101, 242, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(88, 101, 242, 0.1);
+}
+
+.modern-rule-card.card-highlight-danger {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.04) 0%, #11151D 100%);
+}
+
+.modern-rule-card.card-highlight-danger:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(239, 68, 68, 0.15);
+}
+
+.rule-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.rule-index {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #5865F2;
+  background: rgba(88, 101, 242, 0.1);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(88, 101, 242, 0.2);
+}
+
+.card-highlight-danger .rule-index {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.rule-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.3px;
+}
+
+.badge-normal {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary, #9AA3B2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.rule-heading {
+  margin: 0 0 10px 0;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.rule-body {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary, #9AA3B2);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* Tag Chips */
+.rule-tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.rule-tag-chips span {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.rule-note-text {
+  font-size: 0.78rem;
+  color: var(--text-muted, #64748B);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Sanctions step chips */
+.sanctions-steps-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.step-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step-chip span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #5865F2;
+  color: #fff;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-chip.danger {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.12);
+  color: #EF4444;
+}
+
+.step-chip.danger span {
+  background: #EF4444;
+}
+
+/* Search hidden rule */
+.modern-rule-card.rule-hidden {
+  display: none !important;
+}
+
+.rules-master-section.section-hidden {
+  display: none !important;
+}
