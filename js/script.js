@@ -210,6 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initAmbientCanvas();
   initSoundFX();
+  initAuthAndMascot();
+  initPublicTeamSync();
 });
 
 /**
@@ -484,72 +486,81 @@ function initSmoothScroll() {
 }
 
 /**
- * 7. RULES SEARCH & CATEGORY FILTERING
+ * 7. RULES SEARCH & CATEGORY FILTERING (MODERN 01-06 & LEGACY)
  * Real-time instant search across rules and interactive category tabs
  */
 function initRulesSearchAndFilter() {
   const searchInput = document.getElementById('rulesSearchInput');
-  const filterPills = document.querySelectorAll('.rules-pill-btn');
-  const ruleCards = document.querySelectorAll('.rule-card');
-  const categoryBlocks = document.querySelectorAll('.rules-category-block');
+  const navPills = document.querySelectorAll('.rule-pill-nav, .rules-pill-btn');
+  const modernCards = document.querySelectorAll('.modern-rule-card');
+  const legacyCards = document.querySelectorAll('.rule-card');
+  const sections = document.querySelectorAll('.rules-master-section, .rules-category-block');
   const noResultsBox = document.getElementById('noRulesFound');
 
-  if (!ruleCards.length) return;
+  if (!modernCards.length && !legacyCards.length) return;
 
-  let activeCategory = 'all';
-  let searchQuery = '';
-
-  const applyFilters = () => {
-    let visibleCount = 0;
-
-    categoryBlocks.forEach(block => {
-      const blockCat = block.getAttribute('data-cat-id');
-      const cardsInBlock = block.querySelectorAll('.rule-card');
-      let blockVisibleCount = 0;
-
-      cardsInBlock.forEach(card => {
-        const title = (card.querySelector('.rule-card-title')?.textContent || '').toLowerCase();
-        const desc = (card.querySelector('.rule-card-desc')?.textContent || '').toLowerCase();
-        const num = (card.querySelector('.rule-number-badge')?.textContent || '').toLowerCase();
-        const fullText = `${title} ${desc} ${num}`;
-
-        const matchesCat = activeCategory === 'all' || blockCat === activeCategory;
-        const matchesSearch = !searchQuery || fullText.includes(searchQuery);
-
-        if (matchesCat && matchesSearch) {
-          card.style.display = 'flex';
-          blockVisibleCount++;
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
+  // Handle section pill clicks & smooth scrolling to 01-06
+  navPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const href = pill.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        navPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const targetSec = document.querySelector(href);
+        if (targetSec) {
+          targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      });
-
-      block.style.display = blockVisibleCount > 0 ? 'block' : 'none';
-    });
-
-    if (noResultsBox) {
-      if (visibleCount === 0) {
-        noResultsBox.classList.add('visible');
-      } else {
-        noResultsBox.classList.remove('visible');
+      } else if (pill.classList.contains('rules-pill-btn')) {
+        navPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const catTarget = pill.getAttribute('data-cat-target') || 'all';
+        sections.forEach(sec => {
+          const secId = sec.getAttribute('data-cat-id');
+          sec.style.display = (catTarget === 'all' || secId === catTarget) ? 'block' : 'none';
+        });
       }
-    }
-  };
-
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      activeCategory = pill.getAttribute('data-cat-target') || 'all';
-      applyFilters();
     });
   });
 
+  // Real-time search
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim().toLowerCase();
-      applyFilters();
+      const q = e.target.value.trim().toLowerCase();
+      let totalVisible = 0;
+
+      sections.forEach(sec => {
+        const cards = sec.querySelectorAll('.modern-rule-card, .rule-card');
+        let secVisible = 0;
+
+        cards.forEach(card => {
+          const text = (card.textContent || '').toLowerCase();
+          const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+          const matches = !q || text.includes(q) || keywords.includes(q);
+
+          if (matches) {
+            card.classList.remove('rule-hidden');
+            card.style.display = '';
+            secVisible++;
+            totalVisible++;
+          } else {
+            card.classList.add('rule-hidden');
+            card.style.display = 'none';
+          }
+        });
+
+        if (secVisible === 0) {
+          sec.classList.add('section-hidden');
+          sec.style.display = 'none';
+        } else {
+          sec.classList.remove('section-hidden');
+          sec.style.display = 'block';
+        }
+      });
+
+      if (noResultsBox) {
+        noResultsBox.style.display = totalVisible === 0 ? 'block' : 'none';
+      }
     });
   }
 }
@@ -1185,3 +1196,434 @@ function initAmbientCanvas() {
   resize();
   syncState();
 }
+
+
+/* ==========================================================================
+   DISCORD AUTHENTICATION & INTERACTIVE MEMBER MASCOT WIDGET ENGINE
+   ========================================================================== */
+
+let currentAuthUser = null;
+let currentWidgetSettings = {
+  enabled: true,
+  position: 'bottom-right',
+  sound: true,
+  pet_type: 'neon_dragon'
+};
+
+const MASCOT_CONFIG = {
+  skins: {
+    neon_dragon: { icon: '🐉', name: 'تنين أبيكس (Apex Dragon)' },
+    cyber_familiar: { icon: '🦊', name: 'ثعلب سيبراني (Cyber Fox)' },
+    matrix_bot: { icon: '🤖', name: 'بوت المصفوفة (Matrix Droid)' },
+    shadow_wolf: { icon: '🐺', name: 'ذئب الظلال (Shadow Wolf)' }
+  },
+  stages: [
+    { minDays: 1, maxDays: 6, level: 1, stageTitle: 'المستوى 1: مستكشف حديث (Novice)', quote: 'بداية الرحلة في APX┃Velro! كل يوم تكتسب خبرة وامتيازات جديدة.' },
+    { minDays: 7, maxDays: 29, level: 2, stageTitle: 'المستوى 2: مرافق سيبراني (Awakened)', quote: 'أثبتت حضورك في المجتمع وبدأت طاقتك الرقمية بالتطور!' },
+    { minDays: 30, maxDays: 99, level: 3, stageTitle: 'المستوى 3: حارس النيون (Neon Guardian)', quote: 'عضو أساسي ومميز! حارس وفيّ لروح وتقاليد مجتمع APX┃Velro.' },
+    { minDays: 100, maxDays: 364, level: 4, stageTitle: 'المستوى 4: أسطورة أبيكس (Mythic Apex)', quote: 'أكثر من 100 يوم! بصمتك محفورة ومكانتك مرموقة بين الجميع.' },
+    { minDays: 365, maxDays: Infinity, level: 5, stageTitle: 'المستوى 5: الخالد الكوني (Cosmic Immortal)', quote: 'سنة كاملة وأكثر! رتبة الأساطير الخالدة في تاريخ APX┃Velro.' }
+  ]
+};
+
+function getMascotStage(days) {
+  const d = Math.max(1, days || 1);
+  return MASCOT_CONFIG.stages.find(s => d >= s.minDays && d <= s.maxDays) || MASCOT_CONFIG.stages[0];
+}
+
+async function initAuthAndMascot() {
+  try {
+    const res = await fetch('/api/auth/me');
+    const data = await res.json();
+
+    if (data.success && data.user) {
+      currentAuthUser = data.user;
+      if (currentAuthUser.widget_settings) {
+        currentWidgetSettings = { ...currentWidgetSettings, ...currentAuthUser.widget_settings };
+      }
+      renderUserNavbarPill(currentAuthUser);
+      renderMemberMascotWidget(currentAuthUser);
+      syncWidgetSettingsUI();
+    } else {
+      renderGuestNavbarLogin();
+    }
+  } catch (err) {
+    console.warn('[APX Auth] Backend not responding, operating in standalone guest mode:', err);
+    renderGuestNavbarLogin();
+  }
+
+  initMascotSettingsControls();
+}
+
+/**
+ * 1. NAVBAR AUTH PILL (Guest vs Logged In)
+ */
+function renderGuestNavbarLogin() {
+  const slot = document.getElementById('userAuthSlot');
+  if (!slot) return;
+
+  slot.innerHTML = `
+    <a href="/api/auth/discord" class="btn-discord-login" id="discordLoginBtn" title="تسجيل الدخول عبر ديسكورد (اختياري)">
+      <svg viewBox="0 0 24 24" class="discord-btn-icon"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      <span>Login with Discord</span>
+    </a>
+  `;
+
+  const btn = document.getElementById('discordLoginBtn');
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      // Check if Discord is configured or offer interactive login dialog
+      if (window.location.hash === '#discord-setup-needed') {
+        e.preventDefault();
+        openDevLoginModal();
+      }
+    });
+  }
+}
+
+function renderUserNavbarPill(user) {
+  const slot = document.getElementById('userAuthSlot');
+  if (!slot) return;
+
+  const roleClass = user.role.replace(' ', '-');
+  const hasAdmin = user.permissions && user.permissions.includes('admin_access');
+
+  slot.innerHTML = `
+    <div class="user-profile-dropdown-wrapper" id="userProfileDropdown">
+      <button class="user-profile-trigger" id="userProfileTrigger" aria-label="قائمة حساب العضو">
+        <img src="${user.avatar || 'assets/images/tamim.png'}" class="user-nav-avatar" alt="Avatar" onerror="this.src='assets/images/tamim.png'">
+        <div class="user-nav-meta">
+          <span class="user-nav-name">${escapeHtml(user.display_name)}</span>
+          <span class="role-badge-mini ${roleClass}">${user.role}</span>
+        </div>
+        <svg class="chevron-down" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+      </button>
+
+      <div class="user-dropdown-menu">
+        <div class="user-dropdown-header">
+          <div class="dropdown-name">${escapeHtml(user.display_name)} <small style="color:var(--text-muted);font-weight:400;">(@${escapeHtml(user.username)})</small></div>
+          <div class="dropdown-days">
+            <span>📅 عضو منذ ${user.member_days} يوم</span>
+          </div>
+        </div>
+
+        ${hasAdmin ? `
+          <a href="/admin" class="user-dropdown-item admin-link">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <span>لوحة الإدارة (Admin Panel)</span>
+          </a>
+        ` : ''}
+
+        <button class="user-dropdown-item" id="openMascotSettingsBtn">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>تخصيص المرافق (Widget)</span>
+        </button>
+
+        <button class="user-dropdown-item logout-link" id="userLogoutBtn">
+          <svg viewBox="0 0 24 24"><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+          <span>تسجيل الخروج</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Toggle dropdown
+  const wrapper = document.getElementById('userProfileDropdown');
+  const trigger = document.getElementById('userProfileTrigger');
+  if (trigger && wrapper) {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      wrapper.classList.toggle('open');
+    });
+    document.addEventListener('click', () => wrapper.classList.remove('open'));
+  }
+
+  // Logout
+  const logoutBtn = document.getElementById('userLogoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      if (confirm('هل ترغب بتسجيل الخروج من حسابك؟')) {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.reload();
+      }
+    });
+  }
+
+  // Quick Open Widget Settings
+  const mascotSettingsBtn = document.getElementById('openMascotSettingsBtn');
+  if (mascotSettingsBtn) {
+    mascotSettingsBtn.addEventListener('click', () => {
+      if (typeof window.openSettingsDrawer === 'function') {
+        window.openSettingsDrawer();
+      }
+      const widgetGroup = document.getElementById('widgetSettingsGroup');
+      if (widgetGroup) {
+        widgetGroup.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+}
+
+/**
+ * 2. INTERACTIVE MEMBER MASCOT WIDGET
+ */
+function renderMemberMascotWidget(user) {
+  // Remove existing if any
+  const existing = document.getElementById('memberMascotWidget');
+  if (existing) existing.remove();
+
+  if (!currentWidgetSettings.enabled) return;
+
+  const stage = getMascotStage(user.member_days);
+  const skinKey = currentWidgetSettings.pet_type || 'neon_dragon';
+  const skin = MASCOT_CONFIG.skins[skinKey] || MASCOT_CONFIG.skins.neon_dragon;
+  const pos = currentWidgetSettings.position || 'bottom-right';
+
+  // Calculate progress toward next stage
+  let progressPct = 100;
+  let daysToNext = 0;
+  if (stage.maxDays !== Infinity) {
+    const range = stage.maxDays - stage.minDays + 1;
+    const done = user.member_days - stage.minDays;
+    progressPct = Math.min(100, Math.max(10, Math.round((done / range) * 100)));
+    daysToNext = stage.maxDays - user.member_days + 1;
+  }
+
+  const widget = document.createElement('div');
+  widget.id = 'memberMascotWidget';
+  widget.className = `member-mascot-widget pos-${pos}`;
+  widget.setAttribute('data-stage', stage.level);
+  widget.setAttribute('title', `المرافق التفاعلي — ${stage.stageTitle}`);
+
+  widget.innerHTML = `
+    <!-- Speech Dialog Bubble -->
+    <div class="mascot-dialog-bubble" id="mascotDialogBubble">
+      <div class="dialog-header">
+        <span class="dialog-stage-title">🌟 ${stage.stageTitle}</span>
+        <button class="dialog-close-btn" id="closeMascotBubbleBtn">&times;</button>
+      </div>
+
+      <div class="dialog-days-count">
+        أهلاً بك يا ${escapeHtml(user.display_name)}!<br>
+        قضيت معنا ${user.member_days} يومًا في APX┃Velro ✨
+      </div>
+
+      <p class="dialog-quote">"${stage.quote}"</p>
+
+      ${stage.maxDays !== Infinity ? `
+        <div style="font-size:0.7rem;color:var(--text-muted);display:flex;justify-content:space-between;margin-top:6px;">
+          <span>التقدم نحو التطور القادم:</span>
+          <span>بقي ${daysToNext} يوم</span>
+        </div>
+        <div class="mascot-evolution-track">
+          <div class="mascot-evolution-progress" style="width: ${progressPct}%;"></div>
+        </div>
+      ` : `
+        <div style="font-size:0.72rem;color:#EF4444;font-weight:700;margin-top:4px;">
+          👑 وصلت إلى قمة التطور الأسطوري!
+        </div>
+      `}
+    </div>
+
+    <!-- Mascot Icon Box -->
+    <div class="mascot-avatar-box">
+      <span class="mascot-icon">${skin.icon}</span>
+      <span class="mascot-level-pill">Lv.${stage.level}</span>
+    </div>
+  `;
+
+  document.body.appendChild(widget);
+
+  // Click Mascot to toggle Speech Dialog
+  const bubble = widget.querySelector('#mascotDialogBubble');
+  const closeBubbleBtn = widget.querySelector('#closeMascotBubbleBtn');
+
+  widget.addEventListener('click', (e) => {
+    if (e.target.closest('#mascotDialogBubble')) return;
+    const isVisible = bubble.style.display === 'flex';
+    bubble.style.display = isVisible ? 'none' : 'flex';
+
+    if (!isVisible && currentWidgetSettings.sound && typeof SoundFX !== 'undefined') {
+      SoundFX.chord();
+    }
+  });
+
+  if (closeBubbleBtn) {
+    closeBubbleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      bubble.style.display = 'none';
+    });
+  }
+}
+
+/**
+ * 3. MASCOT SETTINGS CONTROLS (INSIDE SETTINGS DRAWER)
+ */
+function initMascotSettingsControls() {
+  const toggle = document.getElementById('mascotToggle');
+  const posBtns = document.querySelectorAll('.pos-btn');
+  const skinBtns = document.querySelectorAll('.skin-btn');
+  const soundToggle = document.getElementById('mascotSoundToggle');
+
+  if (toggle) {
+    toggle.addEventListener('change', () => {
+      currentWidgetSettings.enabled = toggle.checked;
+      saveWidgetSettings();
+    });
+  }
+
+  posBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      posBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentWidgetSettings.position = btn.getAttribute('data-pos');
+      saveWidgetSettings();
+    });
+  });
+
+  skinBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skinBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentWidgetSettings.pet_type = btn.getAttribute('data-skin');
+      saveWidgetSettings();
+    });
+  });
+
+  if (soundToggle) {
+    soundToggle.addEventListener('change', () => {
+      currentWidgetSettings.sound = soundToggle.checked;
+      saveWidgetSettings();
+    });
+  }
+}
+
+function syncWidgetSettingsUI() {
+  const toggle = document.getElementById('mascotToggle');
+  const posBtns = document.querySelectorAll('.pos-btn');
+  const skinBtns = document.querySelectorAll('.skin-btn');
+  const soundToggle = document.getElementById('mascotSoundToggle');
+
+  if (toggle) toggle.checked = Boolean(currentWidgetSettings.enabled);
+  if (soundToggle) soundToggle.checked = Boolean(currentWidgetSettings.sound);
+
+  posBtns.forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-pos') === currentWidgetSettings.position);
+  });
+
+  skinBtns.forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-skin') === currentWidgetSettings.pet_type);
+  });
+}
+
+async function saveWidgetSettings() {
+  if (currentAuthUser) {
+    renderMemberMascotWidget(currentAuthUser);
+    try {
+      await fetch('/api/user/widget', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(currentWidgetSettings)
+      });
+    } catch (err) {
+      console.warn('Failed to sync widget settings to backend:', err);
+    }
+  }
+}
+
+/**
+ * 4. PUBLIC TEAM SYNC (Dynamic Staff Hierarchy from DB)
+ */
+async function initPublicTeamSync() {
+  const staffSection = document.getElementById('staff');
+  if (!staffSection) return;
+
+  try {
+    const res = await fetch('/api/public/team');
+    const data = await res.json();
+    if (!data.success) return;
+
+    if (!data.visible) {
+      staffSection.style.display = 'none';
+      return;
+    }
+
+    staffSection.style.display = 'block';
+
+    if (data.team && data.team.length) {
+      // 1. Sync Owner apex
+      const owner = data.team.find(m => m.role === 'Owner');
+      if (owner) {
+        const ownerNameEl = staffSection.querySelector('.founder-name-text, .mindmap-apex h3, .mindmap-apex .member-name');
+        const ownerAvatarEl = staffSection.querySelector('.founder-avatar-img, .mindmap-apex img');
+        const ownerSubEl = staffSection.querySelector('.founder-handle, .mindmap-apex .member-sub');
+
+        if (ownerNameEl) ownerNameEl.textContent = `${owner.display_name} (@${owner.username})`;
+        if (ownerAvatarEl && owner.avatar) ownerAvatarEl.src = owner.avatar;
+        if (ownerSubEl) ownerSubEl.textContent = `Discord ID: ${owner.discord_id} • ${owner.member_days} يوم`;
+      }
+    }
+  } catch (err) {
+    // Keep static fallback
+  }
+}
+
+/**
+ * 5. DEV / TEST LOGIN MODAL (Instant Owner / Member Demonstration)
+ */
+function openDevLoginModal() {
+  let modal = document.getElementById('devLoginModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'devLoginModal';
+    modal.className = 'admin-modal-backdrop';
+    modal.innerHTML = `
+      <div class="admin-modal-dialog" style="max-width:440px;">
+        <div class="modal-header">
+          <h3 class="modal-title">تسجيل الدخول — APX┃Velro</h3>
+          <button class="modal-close-btn" onclick="document.getElementById('devLoginModal').style.display='none'">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:18px;">
+            يمكنك تسجيل الدخول عبر Discord OAuth2 المباشر أو الدخول الفوري للتجربة واختبار النظام:
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a href="/api/auth/discord" class="btn btn-primary" style="justify-content:center;background:#5865F2;">
+              <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+              <span>تسجيل الدخول عبر Discord OAuth2</span>
+            </a>
+
+            <div style="text-align:center;color:var(--text-muted);font-size:0.75rem;margin:4px 0;">— أو تجربة فورية مباشرة —</div>
+
+            <button class="btn btn-secondary" onclick="executeDevLogin('08_1_', 'Tamim (Owner)', 'Owner')" style="justify-content:center;border-color:#EF4444;color:#EF4444;">
+              👑 دخول فوري كـ Owner (08_1_)
+            </button>
+
+            <button class="btn btn-secondary" onclick="executeDevLogin('Ahmed_Velro', 'Ahmed', 'Member')" style="justify-content:center;">
+              👤 دخول كـ عضو تجريبي (Ahmed)
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+  modal.style.display = 'flex';
+}
+
+window.executeDevLogin = async function(username, displayName, role) {
+  try {
+    const res = await fetch('/api/auth/dev-login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, display_name: displayName, role })
+    });
+    const data = await res.json();
+    if (data.success) {
+      window.location.reload();
+    }
+  } catch (err) {
+    alert('حدث خطأ في تسجيل الدخول التجريبي');
+  }
+};

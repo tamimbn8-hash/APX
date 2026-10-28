@@ -64,6 +64,9 @@
 
       <!-- CTA, Settings & Mobile Toggle -->
       <div class="nav-actions">
+        <!-- User Auth Slot (Discord Login / User Profile Pill) -->
+        <div class="user-auth-slot" id="userAuthSlot"></div>
+
         <!-- Settings Nav Button -->
         <button class="nav-icon-btn" id="navSettingsBtn" aria-label="تخصيص المظهر" title="تخصيص المظهر والخطوط">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
@@ -996,6 +999,53 @@
               <span class="fx-emoji">🚫</span>
               <span class="fx-title">إيقاف التأثير المتحرك</span>
             </button>
+          </div>
+        </div>
+
+        <!-- 1.6 Member Mascot Widget Settings -->
+        <div class="settings-group" id="widgetSettingsGroup">
+          <label class="settings-group-label">المرافق التفاعلي (Member Mascot Widget)</label>
+          
+          <div class="toggle-control-item">
+            <div class="toggle-info">
+              <span>تفعيل المرافق (Enable Widget)</span>
+              <small>كائن رقمي ينمو ويتطور مع أيام عضويتك</small>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="mascotToggle" checked>
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+
+          <div style="margin-top:12px;">
+            <span style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:6px;">موقع المرافق على الشاشة:</span>
+            <div class="widget-pos-grid">
+              <button class="pos-btn" data-pos="bottom-right">أسفل يمين</button>
+              <button class="pos-btn" data-pos="bottom-left">أسفل يسار</button>
+              <button class="pos-btn" data-pos="top-right">أعلى يمين</button>
+              <button class="pos-btn" data-pos="top-left">أعلى يسار</button>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <span style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:6px;">شخصية المرافق (Mascot Skin):</span>
+            <div class="widget-skin-grid">
+              <button class="skin-btn active" data-skin="neon_dragon">🐉 تنين أبيكس</button>
+              <button class="skin-btn" data-skin="cyber_familiar">🦊 ثعلب سيبراني</button>
+              <button class="skin-btn" data-skin="matrix_bot">🤖 بوت المصفوفة</button>
+              <button class="skin-btn" data-skin="shadow_wolf">🐺 ذئب الظلال</button>
+            </div>
+          </div>
+
+          <div class="toggle-control-item" style="margin-top: 12px;">
+            <div class="toggle-info">
+              <span>صوت تفاعل المرافق (Mascot Sound)</span>
+              <small>تشغيل صوت ناعم عند النقر على المرافق</small>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="mascotSoundToggle" checked>
+              <span class="slider-toggle"></span>
+            </label>
           </div>
         </div>
 

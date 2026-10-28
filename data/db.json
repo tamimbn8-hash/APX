@@ -1,0 +1,149 @@
+{
+  "users": [
+    {
+      "discord_id": "108108108108108108",
+      "username": "08_1_",
+      "display_name": "Tamim",
+      "avatar": "assets/images/tamim.png",
+      "avatar_hash": "default",
+      "role": "Owner",
+      "joined_at": "2026-10-20T16:53:44.000Z",
+      "last_login": "2026-10-28T10:58:35.607Z",
+      "last_activity": "2026-10-28T10:58:35.666Z",
+      "login_count": 43,
+      "widget_settings": {
+        "enabled": true,
+        "position": "top-left",
+        "sound": true,
+        "pet_type": "neon_dragon"
+      }
+    },
+    {
+      "discord_id": "993098938835951765",
+      "username": "Ahmed_Tester",
+      "display_name": "Ahmed",
+      "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
+      "avatar_hash": "default",
+      "role": "Moderator",
+      "joined_at": "2026-10-28T10:58:35.587Z",
+      "last_login": "2026-10-28T10:58:35.587Z",
+      "last_activity": "2026-10-28T10:58:35.603Z",
+      "login_count": 1,
+      "widget_settings": {
+        "enabled": true,
+        "position": "bottom-right",
+        "sound": true,
+        "pet_type": "cyber_familiar"
+      }
+    },
+    {
+      "discord_id": "992738007037251369",
+      "username": "Kareem_Staff",
+      "display_name": "Kareem",
+      "avatar": "https://cdn.discordapp.com/embed/avatars/4.png",
+      "avatar_hash": "default",
+      "role": "Member",
+      "joined_at": "2026-10-28T10:58:35.648Z",
+      "last_login": "2026-10-28T10:58:35.648Z",
+      "last_activity": "2026-10-28T10:58:35.656Z",
+      "login_count": 1,
+      "widget_settings": {
+        "enabled": true,
+        "position": "bottom-right",
+        "sound": true,
+        "pet_type": "cyber_familiar"
+      }
+    }
+  ],
+  "sessions": {
+    "tok_04gg2052p4fymvs04af9": {
+      "discord_id": "993098938835951765",
+      "expires_at": "2026-11-27T10:58:35.589Z"
+    },
+    "tok_q1oiqros34mvs04afs": {
+      "discord_id": "108108108108108108",
+      "expires_at": "2026-11-27T10:58:35.608Z"
+    },
+    "tok_en0xgdy89xtmvs04agx": {
+      "discord_id": "992738007037251369",
+      "expires_at": "2026-11-27T10:58:35.649Z"
+    }
+  },
+  "activity_logs": [
+    {
+      "id": "act_mvs04agyc5hn",
+      "timestamp": "2026-10-28T10:58:35.650Z",
+      "actor_id": "992738007037251369",
+      "actor_name": "Kareem_Staff",
+      "action_type": "LOGIN",
+      "description": "سجّل Kareem (@Kareem_Staff) الدخول كـ [Head Admin]",
+      "target_id": "992738007037251369",
+      "target_name": "Kareem_Staff"
+    },
+    {
+      "id": "act_mvs04agw7tsf",
+      "timestamp": "2026-10-28T10:58:35.648Z",
+      "actor_id": "992738007037251369",
+      "actor_name": "Kareem_Staff",
+      "action_type": "MEMBER_JOIN",
+      "description": "انضم العضو الجديد Kareem (@Kareem_Staff) إلى الموقع",
+      "target_id": "992738007037251369",
+      "target_name": "Kareem_Staff"
+    },
+    {
+      "id": "act_mvs04agrfbcf",
+      "timestamp": "2026-10-28T10:58:35.643Z",
+      "actor_id": "108108108108108108",
+      "actor_name": "08_1_",
+      "action_type": "ROLE_CHANGE",
+      "description": "قام 08_1_ بتغيير رتبة Ahmed من Member إلى Moderator",
+      "target_id": "993098938835951765",
+      "target_name": "Ahmed_Tester"
+    },
+    {
+      "id": "act_mvs04afsn7es",
+      "timestamp": "2026-10-28T10:58:35.608Z",
+      "actor_id": "108108108108108108",
+      "actor_name": "08_1_",
+      "action_type": "LOGIN",
+      "description": "سجّل Tamim (@08_1_) الدخول كـ [Owner]",
+      "target_id": "108108108108108108",
+      "target_name": "08_1_"
+    },
+    {
+      "id": "act_mvs04afa76ez",
+      "timestamp": "2026-10-28T10:58:35.590Z",
+      "actor_id": "993098938835951765",
+      "actor_name": "Ahmed_Tester",
+      "action_type": "LOGIN",
+      "description": "سجّل Ahmed (@Ahmed_Tester) الدخول كـ [Member]",
+      "target_id": "993098938835951765",
+      "target_name": "Ahmed_Tester"
+    },
+    {
+      "id": "act_mvs04af7k4l6",
+      "timestamp": "2026-10-28T10:58:35.587Z",
+      "actor_id": "993098938835951765",
+      "actor_name": "Ahmed_Tester",
+      "action_type": "MEMBER_JOIN",
+      "description": "انضم العضو الجديد Ahmed (@Ahmed_Tester) إلى الموقع",
+      "target_id": "993098938835951765",
+      "target_name": "Ahmed_Tester"
+    },
+    {
+      "id": "act_init_01",
+      "timestamp": "2026-10-20T16:53:44.000Z",
+      "actor_id": "108108108108108108",
+      "actor_name": "08_1_",
+      "action_type": "SYSTEM",
+      "description": "تم تأسيس مجتمع APX┃Velro وتعيين 08_1_ كـ Owner للنظام",
+      "target_id": "108108108108108108",
+      "target_name": "08_1_"
+    }
+  ],
+  "site_settings": {
+    "team_section_visibility": "public",
+    "owner_username": "08_1_",
+    "owner_discord_id": "108108108108108108"
+  }
+}

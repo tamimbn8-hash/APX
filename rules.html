@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="القوانين الرسمية — APX┃Velro">
   <meta property="og:description" content="يرجى قراءة القوانين قبل المشاركة في مجتمع APX┃Velro لضمان بيئة آمنة للجميع.">
-  <meta property="og:image" content="https://tamimbn8-hash.github.io/APX/assets/images/rules-banner.png">
+  <meta property="og:image" content="assets/images/rules-banner.png">
   <meta property="og:locale" content="ar_AR">
 
   <!-- Favicon / Theme Color -->
@@ -30,6 +30,7 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/rules-modern.css">
 </head>
 <body>
 
@@ -60,6 +61,9 @@
       </nav>
 
       <div class="nav-actions">
+        <!-- User Auth Slot (Discord Login / User Profile Pill) -->
+        <div class="user-auth-slot" id="userAuthSlot"></div>
+
         <!-- Settings Nav Button -->
         <button class="nav-icon-btn" id="navSettingsBtn" aria-label="تخصيص المظهر" title="تخصيص المظهر والخطوط">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
@@ -82,554 +86,417 @@
   </header>
 
   <main>
-    <!-- =======================================================================
-         PAGE HEADER
-         ======================================================================= -->
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
         <div class="section-badge reveal">
           <span class="animated-emoji">🛡️</span>
-          <span>قواعد وضوابط المجتمع الرسمي</span>
+          <span>دستور وضوابط مجتمع APX┃Velro</span>
         </div>
         <h1 class="section-title reveal">القوانين الرسمية <span class="emoji-bounce">📜</span></h1>
         <p class="section-subtitle reveal">
-          "يرجى قراءة القوانين قبل المشاركة في مجتمع APX┃Velro لضمان بيئة آمنة وعادلة للجميع."
+          "نظام دقيق وقواعد واضحة تضمن للجميع بيئة آمنة، عادلة، وراقية تليق بأعضاء مجتمعنا."
         </p>
       </div>
     </section>
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
-        <!-- Visual Illustration Area: rules-banner.png -->
+
+        <!-- Banner & Callout -->
         <div class="rules-hero-banner reveal">
           <img src="assets/images/rules-banner.png" alt="APX┃Velro Community Rules Banner" width="1376" height="768" loading="eager">
         </div>
 
-        <!-- Official Warning Callout Box -->
-        <div class="warning-callout-box reveal">
-          <div class="warning-header">
-            <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-            <span>تنبيه وسياسة الامتثال الرسمية</span>
+        <!-- Compliance Callout -->
+        <div class="rules-compliance-card reveal">
+          <div class="compliance-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
           </div>
-          <p class="warning-text">
-            "هذه القوانين خاصة بمجتمع APX┃Velro، ويجب الالتزام كذلك بسياسات Discord الرسمية."
-          </p>
-          <div class="policy-buttons-group">
-            <a href="https://discord.com/guidelines" target="_blank" rel="noopener noreferrer" class="policy-btn">
-              <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-              <span>Discord Community Guidelines</span>
+          <div class="compliance-info">
+            <h3>اتفاقية الامتثال وسياسات Discord الرسمية</h3>
+            <p>جميع القوانين المعمول بها في مجتمع وموقع APX┃Velro تخضع للسياسات الإرشادية لشركة Discord وشروط الخدمة العالمية. المشاركة في السيرفر أو استخدام الموقع تعني موافقتك التامة عليها.</p>
+          </div>
+          <div class="compliance-links">
+            <a href="https://discord.com/guidelines" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+              <span>Discord Guidelines</span> ↗
             </a>
-            <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer" class="policy-btn">
-              <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-              <span>Discord Terms of Service</span>
+            <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+              <span>Discord Terms</span> ↗
             </a>
           </div>
         </div>
 
-        <!-- ===================================================================
-             RULES INTERACTIVE TOOLBAR (Search & Category Filters)
-             =================================================================== -->
-        <div class="rules-toolbar reveal">
-          <!-- Live Real-Time Search Bar -->
-          <div class="rules-search-wrapper">
-            <input type="text" id="rulesSearchInput" class="rules-search-input" placeholder="ابحث في القوانين (مثال: سبام، احترام، تسريب، عقوبات)..." aria-label="ابحث في القوانين">
-            <svg class="rules-search-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-            </svg>
+        <!-- QUICK JUMP NAVIGATION TABS (6 STRUCTURED SECTIONS) -->
+        <div class="rules-nav-sticky reveal">
+          <div class="rules-search-bar">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="rulesSearchInput" placeholder="ابحث في نصوص القوانين (مثال: احترام، سبام، تسريب، عقوبات)...">
           </div>
 
-          <!-- Category Quick Filter Pills -->
-          <div class="rules-filter-pills" role="tablist" aria-label="أقسام القوانين">
-            <button class="rules-pill-btn active" data-cat-target="all" role="tab" aria-selected="true">الكل (20)</button>
-            <button class="rules-pill-btn" data-cat-target="behavior" role="tab" aria-selected="false">السلوك والاحترام</button>
-            <button class="rules-pill-btn" data-cat-target="security" role="tab" aria-selected="false">الأمان ومكافحة التهديدات</button>
-            <button class="rules-pill-btn" data-cat-target="resources" role="tab" aria-selected="false">الملكية الفكرية والموارد</button>
-            <button class="rules-pill-btn" data-cat-target="content" role="tab" aria-selected="false">المحتوى والإدارة</button>
-            <button class="rules-pill-btn" data-cat-target="sanctions" role="tab" aria-selected="false">السياسات والعقوبات</button>
+          <div class="rules-section-pills" role="tablist">
+            <a href="#sec-01" class="rule-pill-nav active" data-sec="sec-01">01 القواعد العامة</a>
+            <a href="#sec-02" class="rule-pill-nav" data-sec="sec-02">02 قوانين Discord</a>
+            <a href="#sec-03" class="rule-pill-nav" data-sec="sec-03">03 قوانين الموقع</a>
+            <a href="#sec-04" class="rule-pill-nav" data-sec="sec-04">04 الخدمات والبرمجة</a>
+            <a href="#sec-05" class="rule-pill-nav" data-sec="sec-05">05 إرشادات الإدارة</a>
+            <a href="#sec-06" class="rule-pill-nav" data-sec="sec-06">06 العقوبات والسياسات</a>
           </div>
         </div>
 
-        <!-- No Results Fallback -->
-        <div id="noRulesFound" class="no-rules-found">
+        <div id="noRulesFound" class="no-rules-found" style="display:none;">
           <div class="no-rules-title">لم يتم العثور على أي قانون يطابق بحثك</div>
           <div class="no-rules-subtitle">جرّب البحث بكلمة أخرى مثل "احترام" أو "تسريب" أو "سبام".</div>
         </div>
 
-        <!-- ===================================================================
-             RULES CATEGORY 1: السلوك العام والاحترام (01 - 05)
-             =================================================================== -->
-        <div class="rules-category-block" data-cat-id="behavior">
-          <div class="rules-category-title reveal">
-            <div class="cat-title-inner">
-              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-              <span>السلوك العام والاحترام</span>
+        <!-- SECTION 01: GENERAL RULES & BEHAVIOR -->
+        <section class="rules-master-section" id="sec-01">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">01</div>
+            <div>
+              <h2 class="chapter-title">القواعد العامة والسلوك (General Rules)</h2>
+              <span class="chapter-desc">الضوابط الأساسية التي تحكم التعامل بين جميع الأفراد داخل مجتمعنا.</span>
             </div>
-            <span class="cat-count-badge">5 قوانين</span>
           </div>
 
-          <div class="rules-grid">
+          <div class="rules-cards-grid">
             <!-- Rule 01 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">01</span>
-                  <span class="rule-type-tag">سلوك واحترام</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="احترام سب إهانة تنمر استفزاز تحرش أسلوب">
+              <div class="rule-card-top">
+                <span class="rule-index">#01</span>
+                <span class="rule-badge badge-normal">سلوك أساسي</span>
               </div>
-              <h3 class="rule-card-title">الاحترام</h3>
-              <p class="rule-card-desc">
-                يجب احترام جميع أعضاء المجتمع. يمنع السب، الإهانة، التنمر، الاستفزاز المتعمد أو التحرش بأي شكل من الأشكال.
+              <h3 class="rule-heading">الاحترام المتبادل ومنع التنمر</h3>
+              <p class="rule-body">
+                يجب الالتزام بالاحترام التام لجميع أعضاء المجتمع وإدارته. يُمنع منعاً باتاً السب، الإهانة، التنمر، الاستفزاز المتعمد، أو التحرش اللفظي بأي شكل من الأشكال في كافة القنوات العامة والخاصة.
               </p>
             </article>
 
             <!-- Rule 02 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">02</span>
-                  <span class="rule-type-tag">مكافحة الكراهية</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="كراهية تمييز عنصرية دين طائفة قومية فئات">
+              <div class="rule-card-top">
+                <span class="rule-index">#02</span>
+                <span class="rule-badge badge-warning">مكافحة الكراهية</span>
               </div>
-              <h3 class="rule-card-title">منع الكراهية والتمييز</h3>
-              <p class="rule-card-desc">
-                يمنع نشر أو تشجيع خطاب الكراهية أو التمييز العنصري، الديني، القومي أو الفئوي ضد أي شخص أو مجموعة.
+              <h3 class="rule-heading">منع الكراهية والتمييز العنصري</h3>
+              <p class="rule-body">
+                يُمنع منعاً قاطعاً نشر أو ترويج أو تشجيع أي خطاب كراهية، تعصب، أو تمييز عنصري، ديني، طائفي، قومي، أو فئوي. مجتمع APX┃Velro مساحة جامعة تسع الجميع بأخلاق راقية.
               </p>
             </article>
 
             <!-- Rule 03 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">03</span>
-                  <span class="rule-type-tag">سلامة وأمان</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="تهديد ابتزاز تحريض عنف إيذاء">
+              <div class="rule-card-top">
+                <span class="rule-index">#03</span>
+                <span class="rule-badge badge-danger">أمان جسيم</span>
               </div>
-              <h3 class="rule-card-title">منع التهديد</h3>
-              <p class="rule-card-desc">
-                يمنع التهديد أو التحريض على العنف أو إيذاء الآخرين أو الابتزاز بأي وسيلة كانت.
+              <h3 class="rule-heading">منع التهديد والابتزاز</h3>
+              <p class="rule-body">
+                يُمنع التهديد المباشر أو المبطن، أو التحريض على إيذاء الآخرين، أو الابتزاز المالي أو المعنوي بأي وسيلة كانت. هذه المخالفة تعرض صاحبها للعزل والحظر الفوري.
               </p>
             </article>
 
             <!-- Rule 04 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">04</span>
-                  <span class="rule-type-tag">حماية الخصوصية</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="خصوصية معلومات شخصية دكس doxxing صور أرقام">
+              <div class="rule-card-top">
+                <span class="rule-index">#04</span>
+                <span class="rule-badge badge-danger">حماية الخصوصية</span>
               </div>
-              <h3 class="rule-card-title">منع نشر المعلومات الشخصية</h3>
-              <p class="rule-card-desc">
-                يمنع نشر أو طلب أو مشاركة المعلومات الشخصية (Doxxing) أو الحسابات الخاصة للأعضاء بدون موافقتهم الصريحة.
+              <h3 class="rule-heading">حماية الخصوصية ومنع الـ Doxxing</h3>
+              <p class="rule-body">
+                يُمنع نشر، تسريب، أو طلب أي معلومات شخصية تخص أي عضو (Doxxing) بما في ذلك الأسماء الكاملة، الصور الشخصية، أرقام الهواتف، أو الحسابات البنكية دون موافقة كتابية صريحة.
               </p>
             </article>
 
             <!-- Rule 05 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">05</span>
-                  <span class="rule-type-tag">مكافحة الاحتيال</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="نصب احتيال انتحال خداع سرقة مال">
+              <div class="rule-card-top">
+                <span class="rule-index">#05</span>
+                <span class="rule-badge badge-danger">مكافحة الاحتيال</span>
               </div>
-              <h3 class="rule-card-title">منع الاحتيال</h3>
-              <p class="rule-card-desc">
-                يمنع الاحتيال، النصب، انتحال الشخصية أو محاولة خداع الأعضاء في المعاملات المالية أو البرمجية بأي شكل.
+              <h3 class="rule-heading">منع النصب والاحتيال وانتحال الشخصية</h3>
+              <p class="rule-body">
+                يُمنع النصب أو الاحتيال أو انتحال شخصية أي عضو، مبرمج، أو إداري في السيرفر بهدف الاستيلاء على أموال أو ملفات برمجية. أي محاولة تدليس تواجه بحظر دائم وبلاغ رسمي.
               </p>
             </article>
           </div>
-        </div>
+        </section>
 
-        <!-- ===================================================================
-             RULES CATEGORY 2: الأمان والروابط والسبام (06 - 08)
-             =================================================================== -->
-        <div class="rules-category-block" data-cat-id="security">
-          <div class="rules-category-title reveal">
-            <div class="cat-title-inner">
-              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-              <span>الأمان ومكافحة التهديدات والسبام</span>
+        <!-- SECTION 02: DISCORD & SECURITY RULES -->
+        <section class="rules-master-section" id="sec-02">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">02</div>
+            <div>
+              <h2 class="chapter-title">قوانين ديسكورد والأمان (Discord &amp; Security Rules)</h2>
+              <span class="chapter-desc">حماية خوادمنا وأعضائنا من التهديدات السيبرانية والروابط الضارة والسبام.</span>
             </div>
-            <span class="cat-count-badge">3 قوانين</span>
           </div>
 
-          <div class="rules-grid">
+          <div class="rules-cards-grid">
             <!-- Rule 06 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">06</span>
-                  <span class="rule-type-tag">أمان سيبراني</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/></svg>
-                </div>
+            <article class="modern-rule-card card-highlight-danger reveal" data-keywords="ملفات ضارة فيروسات malware grabber stealer روابط مشبوهة اختراق">
+              <div class="rule-card-top">
+                <span class="rule-index">#06</span>
+                <span class="rule-badge badge-danger">خط أحمر سيبراني</span>
               </div>
-              <h3 class="rule-card-title">منع الروابط الضارة</h3>
-              <p class="rule-card-desc">يمنع منعاً باتاً نشر أو تداول أي ملفات أو روابط مشبوهة تشمل:</p>
-              <div class="security-chips-grid">
-                <span class="security-chip">Malware</span>
-                <span class="security-chip">Viruses</span>
-                <span class="security-chip">Phishing links</span>
-                <span class="security-chip">Token grabbers</span>
-                <span class="security-chip">Stealers</span>
-                <span class="security-chip">ملفات ضارة</span>
-                <span class="security-chip">روابط مشبوهة</span>
+              <h3 class="rule-heading">منع الروابط والملفات الضارة (Malware)</h3>
+              <p class="rule-body">
+                يُمنع منعاً باتاً نشر أو إرسال أو تبادل أي برمجيات أو روابط خبيثة تشمل:
+              </p>
+              <div class="rule-tag-chips">
+                <span>Malware</span>
+                <span>Viruses</span>
+                <span>Token Grabbers</span>
+                <span>Phishing Links</span>
+                <span>Stealers</span>
               </div>
+              <p class="rule-note-text">
+                * عقوبة هذه المخالفة هي الحظر النهائي الفوري مع تعميم الحساب في قوائم الحماية المشتركة.
+              </p>
             </article>
 
             <!-- Rule 07 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">07</span>
-                  <span class="rule-type-tag">تنظيم المحادثات</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="سبام إعلانات نشر تكرار إزعاج خاص dm spam">
+              <div class="rule-card-top">
+                <span class="rule-index">#07</span>
+                <span class="rule-badge badge-warning">تنظيم ونقاء</span>
               </div>
-              <h3 class="rule-card-title">منع السبام</h3>
-              <p class="rule-card-desc">يمنع إزعاج الأعضاء والرومات العامة والخاصة، ويشمل ذلك:</p>
-              <ul class="clean-rule-bullets">
-                <li>Spam أو تكرار نفس الرسائل بكثرة</li>
-                <li>Flood وإغراق قنوات الدردشة</li>
-                <li>المنشن المزعج المتكرر (Mass / Ghost Mention)</li>
-                <li>إرسال محتوى متكرر بدون هدف واضح</li>
-              </ul>
+              <h3 class="rule-heading">منع السبام والإعلانات غير المصرح بها</h3>
+              <p class="rule-body">
+                يُمنع التكرار المزعج للرسائل والمنشنات العشوائية، أو نشر إعلانات لسيرفرات أخرى سواء في الرومات العامة أو عبر الرسائل الخاصة (Direct Messages) لأعضاء المجتمع.
+              </p>
             </article>
 
             <!-- Rule 08 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">08</span>
-                  <span class="rule-type-tag">سياسة الإعلانات</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M18 11v2h4v-2h-4zm-2 6.61c.96.71 2.21 1.65 3.2 2.39.4-.53.8-1.18 1.19-1.78-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.19-1.19 1.79zM19.19 4.79C18.2 5.53 16.95 6.47 16 7.18c.39.6.79 1.25 1.19 1.79.99-.72 2.24-1.66 3.2-2.38-.4-.6-.8-1.25-1.2-1.8zM4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4zm9 4.43l-3-1.8V10.4l3-1.8v4.83z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="شروط ديسكورد tos guidelines إرشادات رسمية سن قانوني">
+              <div class="rule-card-top">
+                <span class="rule-index">#08</span>
+                <span class="rule-badge badge-normal">سياسة منصة</span>
               </div>
-              <h3 class="rule-card-title">الإعلانات</h3>
-              <p class="rule-card-desc">
-                يمنع الإعلان عن سيرفرات أو خدمات أو حسابات خارجية سواء في الرومات العامة أو عبر الرسائل الخاصة لأعضاء السيرفر بدون إذن رسمي من الإدارة.
+              <h3 class="rule-heading">الالتزام الكامل بشروط خدمة Discord</h3>
+              <p class="rule-body">
+                يجب الالتزام بجميع بنود وشروط خدمة Discord الرسمية بما يشمل السن القانوني المسموح به لاستخدام المنصة، ومنع استخدام أي إضافات غير رسمية (Self-bots) تخالف شروط الشركة.
               </p>
             </article>
           </div>
-        </div>
+        </section>
 
-        <!-- ===================================================================
-             RULES CATEGORY 3: الموارد وحقوق الملكية (09 - 11)
-             =================================================================== -->
-        <div class="rules-category-block" data-cat-id="resources">
-          <div class="rules-category-title reveal">
-            <div class="cat-title-inner">
-              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-              <span>الملكية الفكرية والموارد البرمجية</span>
+        <!-- SECTION 03: WEBSITE & ACCOUNT RULES -->
+        <section class="rules-master-section" id="sec-03">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">03</div>
+            <div>
+              <h2 class="chapter-title">قوانين الموقع والحسابات (Website &amp; Accounts)</h2>
+              <span class="chapter-desc">الضوابط المنظمة لاستخدام منصة وموقع APX┃Velro ونظام تسجيل الدخول.</span>
             </div>
-            <span class="cat-count-badge">3 قوانين</span>
           </div>
 
-          <div class="rules-grid">
+          <div class="rules-cards-grid">
             <!-- Rule 09 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">09</span>
-                  <span class="rule-type-tag">حماية المحتوى</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="أمان الحساب تسجيل دخول كلمة مرور مشاركة صلاحيات">
+              <div class="rule-card-top">
+                <span class="rule-index">#09</span>
+                <span class="rule-badge badge-normal">أمان الحساب</span>
               </div>
-              <h3 class="rule-card-title">التسريب</h3>
-              <p class="rule-card-desc">
-                يمنع تسريب الملفات أو السكربتات أو الموارد المدفوعة الخاصة بـ APX┃Velro أو إعادة توزيعها بدون إذن كتابي مباشر من المؤسس.
+              <h3 class="rule-heading">مسؤولية وأمان حساب المستخدم</h3>
+              <p class="rule-body">
+                أنت المسؤول الأول عن أي نشاط يصدر من حساب Discord المسجل به على الموقع. لا تشارك بيانات اعتمادك أو جلسات دخولك مع أي طرف ثالث تحت أي ظرف.
               </p>
             </article>
 
             <!-- Rule 10 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">10</span>
-                  <span class="rule-type-tag">حقوق الملكية</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.44.59-.58c.25-.14.56-.21.92-.21.48 0 .89.13 1.21.39.32.26.54.64.67 1.13l1.83-.55c-.25-.83-.71-1.48-1.39-1.94-.68-.46-1.52-.69-2.52-.69-1.07 0-1.98.27-2.73.82-.75.55-1.31 1.28-1.68 2.19-.37.91-.56 1.93-.56 3.06 0 1.14.19 2.16.57 3.07.38.91.95 1.63 1.71 2.16.76.53 1.68.8 2.76.8 1.05 0 1.91-.24 2.58-.72.67-.48 1.14-1.15 1.4-2.02l-1.85-.51c-.13.48-.36.85-.69 1.1-.33.25-.76.38-1.28.38-.56 0-.99-.13-1.29-.39-.3-.26-.51-.62-.63-1.07-.12-.45-.18-.99-.18-1.62v-.78h5.45c.01-.15.02-.31.02-.49 0-.98-.2-1.82-.6-2.53-.41-.7-1.02-1.24-1.85-1.62-.83-.37-1.82-.56-2.98-.56zm-.02 2.37c.02-.45.09-.84.21-1.18.12-.34.3-.6.54-.78.24-.18.55-.27.93-.27.42 0 .76.11 1.02.34.26.23.44.56.54 1 .05.24.08.53.09.89h-3.33z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="ثغرات عبث هجوم ddos exploit تلاعب برمجيات">
+              <div class="rule-card-top">
+                <span class="rule-index">#10</span>
+                <span class="rule-badge badge-danger">حماية المنظومة</span>
               </div>
-              <h3 class="rule-card-title">حقوق الملفات</h3>
-              <p class="rule-card-desc">
-                يمنع بيع أو إعادة رفع أو إعادة توزيع ملفات ومشاريع APX┃Velro على أنها ملك لشخص آخر، أو إزالة حقوق المطور الأصلية.
+              <h3 class="rule-heading">منع محاولات العبث أو استغلال الثغرات</h3>
+              <p class="rule-body">
+                يُمنع إجراء أي هجمات حرمان من الخدمة (DoS/DDoS) أو استغلال ثغرات أمنية في خوادم أو واجهات الموقع. في حال اكتشافك لأي ثغرة برمجية، يرجى إبلاغ الـ Owner فوراً لتحصل على مكافأة تقديرية.
               </p>
             </article>
 
             <!-- Rule 11 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">11</span>
-                  <span class="rule-type-tag">الاستخدام المشروع</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="استخدام مشروع بوتات سحب بيانات scraping نزاهة">
+              <div class="rule-card-top">
+                <span class="rule-index">#11</span>
+                <span class="rule-badge badge-normal">الاستخدام النزيه</span>
               </div>
-              <h3 class="rule-card-title">استخدام الموارد</h3>
-              <p class="rule-card-desc">
-                يجب استخدام الملفات والأدوات والسكربتات ضمن الغرض المصرح بها فقط، وعدم استخدامها في أي أعمال ضارة أو تخريبية أو مخالفة للقوانين.
+              <h3 class="rule-heading">سياسة الاستخدام المشروع للمنصة</h3>
+              <p class="rule-body">
+                استخدام الموقع متاح للأعضاء للاستفادة من الخدمات، المقالات، الموارد والأنظمة التفاعلية. يُمنع استخدام أدوات سحب البيانات التلقائية (Web Scraping) غير المصرح بها.
               </p>
             </article>
           </div>
-        </div>
+        </section>
 
-        <!-- ===================================================================
-             RULES CATEGORY 4: المحتوى وإدارة المجتمع (12 - 16)
-             =================================================================== -->
-        <div class="rules-category-block" data-cat-id="content">
-          <div class="rules-category-title reveal">
-            <div class="cat-title-inner">
-              <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-              <span>المحتوى وسياسة الإدارة</span>
+        <!-- SECTION 04: SERVICES, MTA & DIGITAL RESOURCES -->
+        <section class="rules-master-section" id="sec-04">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">04</div>
+            <div>
+              <h2 class="chapter-title">قوانين الخدمات والبرمجة والموارد (Services &amp; MTA Rules)</h2>
+              <span class="chapter-desc">حماية الملكية الفكرية، حقوق المطورين، وتنظيم طلبات البرمجة والتصميم.</span>
             </div>
-            <span class="cat-count-badge">5 قوانين</span>
           </div>
 
-          <div class="rules-grid">
+          <div class="rules-cards-grid">
             <!-- Rule 12 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">12</span>
-                  <span class="rule-type-tag">محتوى آمن</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="ملكية فكرية أكواد حقوق برمجة تصميم سكربتات سرقة">
+              <div class="rule-card-top">
+                <span class="rule-index">#12</span>
+                <span class="rule-badge badge-warning">حقوق ملكية</span>
               </div>
-              <h3 class="rule-card-title">المحتوى غير المناسب</h3>
-              <p class="rule-card-desc">
-                يمنع المحتوى الجنسي الصريح أو الإباحي (NSFW / +18) أو المحتوى المخل بالآداب أو أي محتوى يتعارض مع ضوابط منصة Discord.
+              <h3 class="rule-heading">حماية الملكية الفكرية وحقوق المطورين</h3>
+              <p class="rule-body">
+                جميع المودات والسكربتات، البوتات، التصاميم والمواقع المنتجة من قبل فريق APX┃Velro محمية بحقوق الملكية الفكرية. يُمنع سرقة الأكواد أو إزالة حقوق المطورين الأصلية.
               </p>
             </article>
 
             <!-- Rule 13 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">13</span>
-                  <span class="rule-type-tag">أمان السيرفر</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
-                </div>
+            <article class="modern-rule-card card-highlight-danger reveal" data-keywords="تسريب تسريبات leaks إعادة بيع reselling متاجرة غير مشروعة">
+              <div class="rule-card-top">
+                <span class="rule-index">#13</span>
+                <span class="rule-badge badge-danger">منع التسريب</span>
               </div>
-              <h3 class="rule-card-title">استغلال الثغرات</h3>
-              <p class="rule-card-desc">
-                إذا اكتشفت ثغرة برمجية أو أمنية في أحد السكربتات أو رومات السيرفر، يجب إبلاغ الإدارة فوراً عبر تذكرة بدل استغلالها أو نشرها بين الأعضاء.
+              <h3 class="rule-heading">منع تسريب أو إعادة بيع الموارد المدفوعة</h3>
+              <p class="rule-body">
+                يُمنع منعاً باتاً نشر أو تسريب (Leaks) أي سكربتات، ملفات، أو تصاميم تم شراؤها، أو محاولة إعادة بيعها لأطراف أخرى دون ترخيص صريح من إدارة APX┃Velro.
               </p>
             </article>
 
             <!-- Rule 14 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">14</span>
-                  <span class="rule-type-tag">انتحال رسمي</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="تذاكر طلب خدمات دعم ticket رسمي معتمد">
+              <div class="rule-card-top">
+                <span class="rule-index">#14</span>
+                <span class="rule-badge badge-normal">تنظيم الطلبات</span>
               </div>
-              <h3 class="rule-card-title">انتحال الإدارة</h3>
-              <p class="rule-card-desc">
-                يمنع انتحال شخصية المؤسس أو أي من أفراد الإدارة أو استخدام أسماء أو صور توحي كذباً بأنك ممثل رسمي لمجتمع APX┃Velro.
+              <h3 class="rule-heading">طلب الخدمات عبر نظام التذاكر الرسمي فقط</h3>
+              <p class="rule-body">
+                يتم طلب جميع الخدمات والبرمجيات والمودات والتصاميم حصراً من خلال قنوات التذاكر (Tickets) المعتمدة في سيرفر الديسكورد الرسمي لتوثيق الاتفاقيات وحماية حقوق الطرفين.
               </p>
             </article>
 
             <!-- Rule 15 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">15</span>
-                  <span class="rule-type-tag">بيئة المجتمع</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="اتفاقية التزام متطلبات مشروع مواعيد تسليم">
+              <div class="rule-card-top">
+                <span class="rule-index">#15</span>
+                <span class="rule-badge badge-normal">التزام ومصداقية</span>
               </div>
-              <h3 class="rule-card-title">المشاكل والمشاجرات</h3>
-              <p class="rule-card-desc">
-                يمنع تحويل رومات السيرفر إلى ساحة للمشاكل والنزاعات الشخصية المستمرة؛ الخلافات الخاصة تُحل خارج حدود المجتمع تماماً.
-              </p>
-            </article>
-
-            <!-- Rule 16 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">16</span>
-                  <span class="rule-type-tag">قرارات المشرفين</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                </div>
-              </div>
-              <h3 class="rule-card-title">الالتزام بتعليمات الإدارة</h3>
-              <p class="rule-card-desc">
-                يجب احترام توجيهات وقرارات طاقم الإشراف والإدارة ما لم تكن مخالفة للقوانين المكتوبة أو سياسات المنصة الرسمية.
+              <h3 class="rule-heading">وضوح المتطلبات والالتزام بالاتفاقيات</h3>
+              <p class="rule-body">
+                يجب على العميل تقديم تفاصيل دقيقة لمتطلبات مشروعه البرمجي. التعديلات الإضافية بعد تسليم المشروع المتفق عليه تخضع لتقدير المطور وفق نطاق العمل الأصلي.
               </p>
             </article>
           </div>
-        </div>
+        </section>
 
-        <!-- ===================================================================
-             RULES CATEGORY 5: السياسات والتقارير والعقوبات (17 - 20)
-             =================================================================== -->
-        <div class="rules-category-block" data-cat-id="sanctions">
-          <div class="rules-category-title reveal">
-            <div class="cat-title-inner">
-              <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-              <span>التطبيق والعقوبات والتقارير</span>
+        <!-- SECTION 05: STAFF & MODERATION GUIDELINES -->
+        <section class="rules-master-section" id="sec-05">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">05</div>
+            <div>
+              <h2 class="chapter-title">إرشادات وضوابط الإدارة (Staff Guidelines)</h2>
+              <span class="chapter-desc">ميثاق شرف الإداريين والمشرفين لضمان العدالة والنزاهة المؤسسية.</span>
             </div>
-            <span class="cat-count-badge">4 قوانين</span>
           </div>
 
-          <div class="rules-grid">
+          <div class="rules-cards-grid">
+            <!-- Rule 16 -->
+            <article class="modern-rule-card reveal" data-keywords="حياد عدل مساواة إنصاف إدارة نزاهة">
+              <div class="rule-card-top">
+                <span class="rule-index">#16</span>
+                <span class="rule-badge badge-normal">عدالة إدارية</span>
+              </div>
+              <h3 class="rule-heading">الالتزام بالحيادية والإنصاف التام</h3>
+              <p class="rule-body">
+                يلتزم جميع أفراد الهيكل الإداري (Moderator, Admin, Head Admin, Founder) بالتعامل بحيادية ومساواة تامة بين الأعضاء بعيداً عن أي علاقات شخصية أو انحيازات مسبقة.
+              </p>
+            </article>
+
             <!-- Rule 17 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">17</span>
-                  <span class="rule-type-tag">شروط Discord</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                </div>
+            <article class="modern-rule-card reveal" data-keywords="استغلال سلطة صلاحيات رتبة تجاوزات منفعة">
+              <div class="rule-card-top">
+                <span class="rule-index">#17</span>
+                <span class="rule-badge badge-warning">نزاهة المسؤولية</span>
               </div>
-              <h3 class="rule-card-title">مخالفة Discord</h3>
-              <p class="rule-card-desc">
-                أي محتوى أو تصرف ينتهك بنود Discord Terms of Service أو Community Guidelines ممنوع منعاً كلياً داخل السيرفر ويعرض صاحبه للإجراء المباشر.
+              <h3 class="rule-heading">منع استغلال الرتب أو الصلاحيات الإدارية</h3>
+              <p class="rule-body">
+                أي استغلال للصلاحيات الإدارية لتحقيق منافع شخصية، أو التعدي غير المبرر على الأعضاء، أو إساءة استخدام أوامر الكتم والطرد يعرض الإداري للعزل الفوري والمحاسبة.
               </p>
             </article>
 
-            <!-- Rule 18 (With Progressive Sanctions Ladder) -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">18</span>
-                  <span class="rule-type-tag">نظام الجزاءات</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                </div>
+            <!-- Rule 18 -->
+            <article class="modern-rule-card reveal" data-keywords="توثيق سجلات log audit إثبات شفافية">
+              <div class="rule-card-top">
+                <span class="rule-index">#18</span>
+                <span class="rule-badge badge-normal">شفافية وتوثيق</span>
               </div>
-              <h3 class="rule-card-title">العقوبات</h3>
-              <p class="rule-card-desc">
-                تتخذ الإدارة الإجراء المناسب تصاعدياً حسب نوع وخطورة المخالفة (ولا يُشترط التدرج في الحالات الجسيمة):
-              </p>
-              
-              <!-- 5-Step Visual Sanctions Ladder -->
-              <div class="sanctions-ladder">
-                <div class="sanction-step warning">
-                  <span class="sanction-num">01</span>
-                  <span class="sanction-name">تحذير</span>
-                </div>
-                <div class="sanction-step delete">
-                  <span class="sanction-num">02</span>
-                  <span class="sanction-name">حذف المحتوى</span>
-                </div>
-                <div class="sanction-step timeout">
-                  <span class="sanction-num">03</span>
-                  <span class="sanction-name">Timeout</span>
-                </div>
-                <div class="sanction-step kick">
-                  <span class="sanction-num">04</span>
-                  <span class="sanction-name">طرد (Kick)</span>
-                </div>
-                <div class="sanction-step ban">
-                  <span class="sanction-num">05</span>
-                  <span class="sanction-name">حظر (Ban)</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Rule 19 -->
-            <article class="rule-card reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge">19</span>
-                  <span class="rule-type-tag">الدعم والإبلاغ</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-                </div>
-              </div>
-              <h3 class="rule-card-title">الثغرات والتقارير</h3>
-              <p class="rule-card-desc">
-                في حال حدوث مشكلة، نزاع، محاولة احتيال، أو اكتشاف سلوك مخالف، يرجى فتح تذكرة دعم مخصصة في السيرفر ليتعامل معها الطاقم الإداري مباشرة.
-              </p>
-            </article>
-
-            <!-- Rule 20 (Featured Agreement Banner) -->
-            <article class="rule-card rule-card-agreement reveal">
-              <div class="rule-card-header">
-                <div class="rule-badge-group">
-                  <span class="rule-number-badge" style="background: rgba(46, 204, 113, 0.15); color: #2ECC71; border-color: rgba(46, 204, 113, 0.3);">20</span>
-                  <span class="rule-type-tag" style="color: #2ECC71; background: rgba(46, 204, 113, 0.1);">اتفاقية الانضمام</span>
-                </div>
-                <div class="rule-icon-box">
-                  <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                </div>
-              </div>
-              <h3 class="rule-card-title" style="color: #FFFFFF;">الموافقة والالتزام التام</h3>
-              <p class="rule-card-desc" style="font-size: 1.02rem; color: #E2E8F0;">
-                انضمامك وتواجدك داخل مجتمع <strong>APX┃Velro</strong> يعني إقراراً صريحاً بأنك قرأت هذه القوانين بدقة وتوافق التزامك الكامل بها وبسياسات Discord الرسمية لخلق مجتمع تقني آمن واحترافي للجميع.
+              <h3 class="rule-heading">توثيق العقوبات والقرارات الإدارية</h3>
+              <p class="rule-body">
+                يجب على كل إداري تسجيل سبب العقوبة وتوثيقها بدليل واضح في قنوات السجلات (Mod-Logs) لضمان الشفافية وإتاحة مراجعة القرار من قِبل الـ Head Admin والـ Owner.
               </p>
             </article>
           </div>
-        </div>
+        </section>
 
-        <!-- Rules Page CTA -->
-        <div style="text-align: center; margin-top: 56px;" class="reveal">
-          <p class="section-subtitle" style="margin-bottom: 24px;">
-            هل لديك أي استفسار حول القوانين أو ترغب بالإبلاغ عن مخالفة؟
-          </p>
-          <a href="https://discord.gg/xpcn8Jh6S9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-            <span>تواصل مع الإدارة عبر تذاكر Discord</span>
-          </a>
-        </div>
+        <!-- SECTION 06: PUNISHMENTS & SANCTIONS HIERARCHY -->
+        <section class="rules-master-section" id="sec-06">
+          <div class="section-chapter-header reveal">
+            <div class="chapter-number">06</div>
+            <div>
+              <h2 class="chapter-title">العقوبات وسياسة التدرج التأديبي (Punishments &amp; Policy)</h2>
+              <span class="chapter-desc">الإجراءات المتبعة عند ارتكاب أي مخالفة لضمان الانضباط والنظام.</span>
+            </div>
+          </div>
+
+          <div class="rules-cards-grid">
+            <!-- Rule 19 -->
+            <article class="modern-rule-card reveal" data-keywords="سلم عقوبات تدرج تنبيه إنذار إسكات timeout طرد kick حظر ban">
+              <div class="rule-card-top">
+                <span class="rule-index">#19</span>
+                <span class="rule-badge badge-warning">تدرج تأديبي</span>
+              </div>
+              <h3 class="rule-heading">السلم التدريجي للعقوبات الإدارية</h3>
+              <p class="rule-body">
+                تطبق العقوبات وفق التدرج الطبيعي حسب جسامة المخالفة وتكرارها من قِبل العضو:
+              </p>
+              <div class="sanctions-steps-row">
+                <div class="step-chip"><span>1</span> تنبيه شفهي</div>
+                <div class="step-chip"><span>2</span> إنذار رسمي</div>
+                <div class="step-chip"><span>3</span> إسكات مؤقت (Timeout)</div>
+                <div class="step-chip"><span>4</span> طرد من السيرفر (Kick)</div>
+                <div class="step-chip danger"><span>5</span> حظر نهائي (Ban)</div>
+              </div>
+            </article>
+
+            <!-- Rule 20 -->
+            <article class="modern-rule-card card-highlight-danger reveal" data-keywords="حظر فوري صفر تسامح zero tolerance تسريب سبام جسيم سرقة">
+              <div class="rule-card-top">
+                <span class="rule-index">#20</span>
+                <span class="rule-badge badge-danger">حظر فوري نهائي</span>
+              </div>
+              <h3 class="rule-heading">المخالفات الجسيمة (Zero Tolerance)</h3>
+              <p class="rule-body">
+                المخالفات الجسيمة مثل نشر البرمجيات الخبيثة، سرقة الحسابات، النصب، أو تسريب الأكواد الخاصة توجب الحظر النهائي الفوري (Permanent Ban) وإزالة جميع الصلاحيات دون تدرج تأديبي.
+              </p>
+            </article>
+          </div>
+        </section>
+
       </div>
     </section>
   </main>
 
-  <!-- =========================================================================
-       FOOTER
-       ========================================================================= -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand-box">
           <div class="footer-brand">
             <div class="brand-icon-box">
-          <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
-        </div>
+              <img src="assets/images/logo.png" alt="APX Velro Logo" class="brand-logo-img">
+            </div>
             <span>APX┃Velro</span>
           </div>
           <p class="footer-desc">
@@ -667,26 +534,18 @@
     </div>
   </footer>
 
-  <!-- =========================================================================
-       FLOATING BUTTONS
-       ========================================================================= -->
-  <!-- Floating Settings Button -->
+  <!-- Floating Settings & Back-to-Top Buttons -->
   <button class="floating-settings-btn" id="floatingSettingsBtn" aria-label="الإعدادات" title="تخصيص المظهر">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
   </button>
 
-  <!-- Back To Top Button -->
   <button class="back-to-top-btn" id="backToTopBtn" aria-label="العودة للأعلى" title="العودة للأعلى">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
   </button>
 
-  <!-- =========================================================================
-       SETTINGS OVERLAY & DRAWER
-       ========================================================================= -->
+  <!-- Settings Drawer -->
   <div class="settings-overlay" id="settingsOverlay" aria-modal="true" role="dialog" aria-label="قسم الإعدادات">
     <div class="settings-drawer" id="settingsDrawer">
-
-      <!-- Drawer Header -->
       <div class="settings-header">
         <div class="settings-title-group">
           <svg viewBox="0 0 24 24" class="settings-icon" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
@@ -697,7 +556,7 @@
         </button>
       </div>
 
-      <!-- 1. Theme / Night & Light Mode -->
+      <!-- Theme Mode -->
       <div class="settings-group">
         <label class="settings-group-label">الوضع الليلي والسمة</label>
         <div class="theme-options-grid">
@@ -724,34 +583,66 @@
         </div>
       </div>
 
-      <!-- 1.5 Ambience FX Mode (Rain, Stars, Snow, Matrix, Off) -->
+      <!-- Ambience FX -->
       <div class="settings-group">
         <label class="settings-group-label">خلفية الأجواء التفاعلية (Ambience FX)</label>
         <div class="ambient-effects-grid">
-          <button class="ambient-fx-btn active" data-fx-val="rain">
-            <span class="fx-emoji">🌧️</span>
-            <span class="fx-title">مطر سينمائي</span>
-          </button>
-          <button class="ambient-fx-btn" data-fx-val="stars">
-            <span class="fx-emoji">✨</span>
-            <span class="fx-title">شهب ونجوم</span>
-          </button>
-          <button class="ambient-fx-btn" data-fx-val="snow">
-            <span class="fx-emoji">❄️</span>
-            <span class="fx-title">ثلج وجزيئات</span>
-          </button>
-          <button class="ambient-fx-btn" data-fx-val="matrix">
-            <span class="fx-emoji">⚡</span>
-            <span class="fx-title">مصفوفة ديجيتال</span>
-          </button>
-          <button class="ambient-fx-btn" data-fx-val="off" style="grid-column: span 2;">
-            <span class="fx-emoji">🚫</span>
-            <span class="fx-title">إيقاف التأثير المتحرك</span>
-          </button>
+          <button class="ambient-fx-btn active" data-fx-val="rain"><span class="fx-emoji">🌧️</span><span class="fx-title">مطر سينمائي</span></button>
+          <button class="ambient-fx-btn" data-fx-val="stars"><span class="fx-emoji">✨</span><span class="fx-title">شهب ونجوم</span></button>
+          <button class="ambient-fx-btn" data-fx-val="snow"><span class="fx-emoji">❄️</span><span class="fx-title">ثلج وجزيئات</span></button>
+          <button class="ambient-fx-btn" data-fx-val="matrix"><span class="fx-emoji">⚡</span><span class="fx-title">مصفوفة ديجيتال</span></button>
+          <button class="ambient-fx-btn" data-fx-val="off" style="grid-column: span 2;"><span class="fx-emoji">🚫</span><span class="fx-title">إيقاف التأثير</span></button>
         </div>
       </div>
 
-      <!-- 2. Accent Color -->
+      <!-- Member Mascot Widget Settings -->
+      <div class="settings-group" id="widgetSettingsGroup">
+        <label class="settings-group-label">المرافق التفاعلي (Member Mascot Widget)</label>
+        
+        <div class="toggle-control-item">
+          <div class="toggle-info">
+            <span>تفعيل المرافق (Enable Widget)</span>
+            <small>كائن رقمي ينمو ويتطور مع أيام عضويتك</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="mascotToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+
+        <div style="margin-top:12px;">
+          <span style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:6px;">موقع المرافق على الشاشة:</span>
+          <div class="widget-pos-grid">
+            <button class="pos-btn" data-pos="bottom-right">أسفل يمين</button>
+            <button class="pos-btn" data-pos="bottom-left">أسفل يسار</button>
+            <button class="pos-btn" data-pos="top-right">أعلى يمين</button>
+            <button class="pos-btn" data-pos="top-left">أعلى يسار</button>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <span style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:6px;">شخصية المرافق (Mascot Skin):</span>
+          <div class="widget-skin-grid">
+            <button class="skin-btn active" data-skin="neon_dragon">🐉 تنين أبيكس</button>
+            <button class="skin-btn" data-skin="cyber_familiar">🦊 ثعلب سيبراني</button>
+            <button class="skin-btn" data-skin="matrix_bot">🤖 بوت المصفوفة</button>
+            <button class="skin-btn" data-skin="shadow_wolf">🐺 ذئب الظلال</button>
+          </div>
+        </div>
+
+        <div class="toggle-control-item" style="margin-top: 12px;">
+          <div class="toggle-info">
+            <span>صوت تفاعل المرافق (Mascot Sound)</span>
+            <small>تشغيل صوت ناعم عند النقر على المرافق</small>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="mascotSoundToggle" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Accent Color -->
       <div class="settings-group">
         <label class="settings-group-label">لون التمييز — Accent Color</label>
         <div class="accent-dots-row">
@@ -764,7 +655,7 @@
         </div>
       </div>
 
-      <!-- 3. Arabic Font -->
+      <!-- Arabic Font -->
       <div class="settings-group">
         <label class="settings-group-label">الخط العربي — Arabic Font</label>
         <div class="font-options-list">
@@ -775,7 +666,7 @@
         </div>
       </div>
 
-      <!-- 4. Font Size -->
+      <!-- Font Size -->
       <div class="settings-group">
         <label class="settings-group-label">حجم الخط — Font Size</label>
         <div class="size-btns-row">
@@ -785,59 +676,32 @@
         </div>
       </div>
 
-      <!-- 5. Toggles -->
+      <!-- Toggles -->
       <div class="settings-group">
-        <label class="settings-group-label">المؤثرات البصرية</label>
+        <label class="settings-group-label">المؤثرات البصرية والصوت</label>
         <div class="toggle-control-item">
-          <div class="toggle-info">
-            <span>التأثيرات الحركية (Animations)</span>
-            <small>حركات الظهور والانتقال السلس</small>
-          </div>
-          <label class="switch-toggle">
-            <input type="checkbox" id="motionToggle" checked>
-            <span class="slider-toggle"></span>
-          </label>
+          <div class="toggle-info"><span>التأثيرات الحركية (Animations)</span><small>حركات الظهور والانتقال</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="motionToggle" checked><span class="slider-toggle"></span></label>
         </div>
         <div class="toggle-control-item" style="margin-top: 10px;">
-          <div class="toggle-info">
-            <span>توهج النيون (Glow Aura)</span>
-            <small>توهج الأزرار وإضاءة الإطارات</small>
-          </div>
-          <label class="switch-toggle">
-            <input type="checkbox" id="glowToggle" checked>
-            <span class="slider-toggle"></span>
-          </label>
+          <div class="toggle-info"><span>توهج النيون (Glow Aura)</span><small>توهج الأزرار والإطارات</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="glowToggle" checked><span class="slider-toggle"></span></label>
         </div>
         <div class="toggle-control-item" style="margin-top: 10px;">
-          <div class="toggle-info">
-            <span>🔊 المؤثرات الصوتية (Sound FX)</span>
-            <small>أصوات تفاعلية خفيفة عند النقر والتنقل</small>
-          </div>
-          <label class="switch-toggle">
-            <input type="checkbox" id="soundToggle" checked>
-            <span class="slider-toggle"></span>
-          </label>
+          <div class="toggle-info"><span>🔊 المؤثرات الصوتية (Sound FX)</span><small>أصوات تفاعلية خفيفة</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="soundToggle" checked><span class="slider-toggle"></span></label>
         </div>
         <div class="toggle-control-item" style="margin-top: 10px;">
-          <div class="toggle-info">
-            <span>🌧 مطر الخلفية (Rain Effect)</span>
-            <small>تأثير مطر متحرك في خلفية الموقع</small>
-          </div>
-          <label class="switch-toggle">
-            <input type="checkbox" id="rainToggle" checked>
-            <span class="slider-toggle"></span>
-          </label>
+          <div class="toggle-info"><span>🌧 مطر الخلفية (Rain Effect)</span><small>مطر متحرك في الخلفية</small></div>
+          <label class="switch-toggle"><input type="checkbox" id="rainToggle" checked><span class="slider-toggle"></span></label>
         </div>
       </div>
 
-      <!-- Reset Button -->
       <div class="settings-footer-actions">
         <button class="btn btn-secondary btn-sm" id="resetSettingsBtn" style="width: 100%;">
-          <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
           <span>استعادة الإعدادات الافتراضية</span>
         </button>
       </div>
-
     </div>
   </div>
 
